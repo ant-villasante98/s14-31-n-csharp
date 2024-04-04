@@ -12,7 +12,6 @@ import { initFlowbite } from 'flowbite';
 })
 export class AppComponent implements OnInit {
   title = 'NoWait';
-
   ngOnInit(): void {
     initFlowbite();
   }
