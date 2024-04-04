@@ -1,0 +1,103 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>aspnet-S14-2f16307f-cdba-4a6f-bf80-d7fc94f6d1c9</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
+		<CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+		<CodeAnalysisRuleSet>..\code-analysis.ruleset</CodeAnalysisRuleSet>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" NoWarn="NU1605" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.3" NoWarn="NU1605" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Identity.Web" Version="2.15.2" />
+		<PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="2.15.2" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="..\code-analysis.ruleset" Link="Properties\code-analysis.ruleset" />
+		<AdditionalFiles Include="..\stylecop.json" Link="Properties\stylecop.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="History\Infraestructure\" />
+	  <Folder Include="MenuSystem\Infraestructure\" />
+	  <Folder Include="Notifications\Common\Dtos\" />
+	  <Folder Include="Notifications\Common\Mappers\" />
+	  <Folder Include="Notifications\Common\Utilities\" />
+	  <Folder Include="Notifications\Controllers\" />
+	  <Folder Include="Notifications\Domain\" />
+	  <Folder Include="Notifications\Infraestructure\" />
+	  <Folder Include="Notifications\Services\" />
+	  <Folder Include="History\Common\Dtos\" />
+	  <Folder Include="History\Common\Mappers\" />
+	  <Folder Include="History\Common\Utilities\" />
+	  <Folder Include="History\Controllers\" />
+	  <Folder Include="History\Domain\" />
+	  <Folder Include="History\Services\" />
+	  <Folder Include="MenuSystem\Common\Dtos\" />
+	  <Folder Include="MenuSystem\Common\Mappers\" />
+	  <Folder Include="MenuSystem\Common\Utilities\" />
+	  <Folder Include="MenuSystem\Controllers\" />
+	  <Folder Include="MenuSystem\Domain\" />
+	  <Folder Include="MenuSystem\Services\" />
+	  <Folder Include="Orders\Common\Exceptions\" />
+	  <Folder Include="Payments\Infraestructure\" />
+	  <Folder Include="Orders\Common\Dtos\" />
+	  <Folder Include="Orders\Common\Mappers\" />
+	  <Folder Include="Orders\Common\Utilities\" />
+	  <Folder Include="Orders\Controllers\" />
+	  <Folder Include="Orders\Domain\" />
+	  <Folder Include="Orders\Infraestructure\" />
+	  <Folder Include="Orders\Services\" />
+	  <Folder Include="QR\Common\Dtos\" />
+	  <Folder Include="QR\Common\Mappers\" />
+	  <Folder Include="QR\Common\Utilities\" />
+	  <Folder Include="QR\Controllers\" />
+	  <Folder Include="QR\Domain\" />
+	  <Folder Include="QR\Infraestructure\" />
+	  <Folder Include="QR\Services\" />
+	  <Folder Include="POS\Common\Dtos\" />
+	  <Folder Include="POS\Common\Mappers\" />
+	  <Folder Include="POS\Common\Utilities\" />
+	  <Folder Include="POS\Controllers\" />
+	  <Folder Include="POS\Domain\" />
+	  <Folder Include="POS\Infraestructure\" />
+	  <Folder Include="POS\Services\" />
+	  <Folder Include="Payments\Common\Dtos\" />
+	  <Folder Include="Payments\Common\Mappers\" />
+	  <Folder Include="Payments\Common\Utilities\" />
+	  <Folder Include="Payments\Controllers\" />
+	  <Folder Include="Payments\Domain\" />
+	  <Folder Include="Payments\Services\" />
+	  <Folder Include="UserManagment\Common\Mappers\" />
+	  <Folder Include="UserManagment\Common\Dtos\" />
+	  <Folder Include="UserManagment\Common\Utilities\" />
+	  <Folder Include="UserManagment\Controllers\" />
+	  <Folder Include="UserManagment\Domain\" />
+	  <Folder Include="UserManagment\Services\" />
+	  <Folder Include="Base\Infraestructure\Data\Seeds\" />
+	</ItemGroup>
+
+
+</Project>
