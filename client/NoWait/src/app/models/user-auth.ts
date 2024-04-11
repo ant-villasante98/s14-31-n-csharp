@@ -1,5 +1,6 @@
 export interface UserAuth {
-    userId: number;
+    userId?: number;
     accessToken: string;
     refreshToken: string;
+    tokenType: string;
 }

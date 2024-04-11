@@ -5,15 +5,21 @@ import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
     {
-        path: '',
+        path: 'home',
         component: HomeComponent
     },
     {
+        // Componente de prueba
         path: 'test-component',
         component: TestComponent
     },
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: '',
+        redirectTo: "/home",
+        pathMatch: 'full'
     }
 ];
