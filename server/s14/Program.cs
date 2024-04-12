@@ -6,6 +6,7 @@ using Microsoft.OpenApi.Models;
 using S14.Base.Infraestructure.Data;
 using S14.UserManagment.Infraestructure;
 using Swashbuckle.AspNetCore.Filters;
+using S14.QR.Infrastructure.DI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -86,6 +87,8 @@ builder.Services.AddCors(policyBuilder =>
             .AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod()));
+
+builder.Services.AddQrDependencyInjection(builder.Configuration);
 
 var app = builder.Build();
 
