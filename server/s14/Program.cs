@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using S14.Base.Infraestructure.Data;
+using S14.Orders.Infrastructure;
 using S14.UserManagment.Infraestructure;
 using Swashbuckle.AspNetCore.Filters;
 using S14.QR.Infrastructure.DI;
@@ -87,6 +88,8 @@ builder.Services.AddCors(policyBuilder =>
             .AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod()));
+            
+builder.Services.OrdersSystemServices(builder.Configuration);
 
 builder.Services.AddQrDependencyInjection(builder.Configuration);
 
@@ -99,10 +102,9 @@ app.UseSwaggerUI(options =>
     options.EnableTryItOutByDefault());
 
 // Add Me endpoint to get custom values from AppUser
-app.MapGroup("api/auth")
-    .MapIdentityApi<AppUser>()
-    .WithTags("Auth api")
-    ;
+//app.MapGroup("api/auth")
+//    .MapIdentityApi<AppUser>()
+//    .WithTags("Auth api");
 
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
