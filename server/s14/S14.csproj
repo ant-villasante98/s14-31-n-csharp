@@ -15,6 +15,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" NoWarn="NU1605" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.3" NoWarn="NU1605" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
@@ -86,7 +87,6 @@
 	  <Folder Include="POS\Services\" />
 	  <Folder Include="Payments\Common\Dtos\" />
 	  <Folder Include="Payments\Common\Mappers\" />
-	  <Folder Include="Payments\Common\Utilities\" />
 	  <Folder Include="Payments\Controllers\" />
 	  <Folder Include="Payments\Domain\" />
 	  <Folder Include="Payments\Services\" />
