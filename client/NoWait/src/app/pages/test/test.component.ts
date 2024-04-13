@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, inject, input } from '@angular/core';
-import { AuthService } from '../modals/login/services/auth.service';
+import { AuthService } from '../login/services/auth.service';
 import { QrService } from './services/qr.service';
 import { HtmlParser } from '@angular/compiler';
 import { Router } from '@angular/router';
