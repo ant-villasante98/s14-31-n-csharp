@@ -1,15 +1,27 @@
 import { HttpErrorResponse, HttpInterceptorFn, HttpStatusCode } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { EMPTY, catchError, concatMap, throwError } from 'rxjs';
-import { AuthService } from '../../pages/modals/login/services/auth.service';
+import { AuthService } from '../../pages/auth/services/auth.service'; 
 import { Router } from '@angular/router';
+import { EnvService } from '../services/env.service';
 
 export const errorApiInterceptor: HttpInterceptorFn = (req, next) => {
-  const authService = inject(AuthService)
+  console.log(`--Interceptor-Error: peticion ${req.url}`)
+
+  const API_URL = inject(EnvService).API_URL;
+  const authService = inject(AuthService);
+  let router = inject(Router);
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
+
+      // cuando el acces
       if (error.status == HttpStatusCode.Unauthorized) {
+        if (req.url === `${API_URL}/auth/refresh`) {
+          console.log("ERROR-1: Refresh token invalido.")
+          // router.navigateByUrl("/auth/login")
+          return EMPTY;
+        }
         authService.refresh("", "")
           .pipe(
             concatMap((response) => {
@@ -23,8 +35,9 @@ export const errorApiInterceptor: HttpInterceptorFn = (req, next) => {
 
             }),
             catchError(() => {
+              console.log("ERROR-2: Refresh token invalido.")
               // en caso no se pueda autorizar el refresh
-              inject(Router).navigateByUrl("/")
+              // router.navigateByUrl("/")
               return EMPTY
             }),
 

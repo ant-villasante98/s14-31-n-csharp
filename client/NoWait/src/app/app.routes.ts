@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
 import { TestComponent } from './pages/test/test.component';
-import { LoginComponent } from './pages/modals/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { authRoutes } from './pages/auth/auth.routes';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SearchComponent } from './pages/search/search.component';
 
 export const routes: Routes = [
     {
@@ -9,17 +11,27 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
+        path: 'auth',
+        loadComponent: () => import('./pages/auth/auth.component').then(c => c.AuthComponent),
+        children: authRoutes
+    },
+    {
+        path: 'seach',
+        component: SearchComponent
+    }
+    ,
+    {
         // Componente de prueba
         path: 'test-component',
         component: TestComponent
     },
     {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
         path: '',
         redirectTo: "/home",
         pathMatch: 'full'
+    },
+    {
+        path: '**',
+        component: NotFoundComponent
     }
 ];

@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { initFlowbite } from 'flowbite';
 import { NavbarComponent } from './shared/components/sctruct/navbar/navbar.component';
 import { BannerHomeComponent } from './shared/components/banners/banner-home/banner-home.component';
-import { LoginComponent } from './pages/modals/login/login.component';
+import { LoginComponent } from './pages/auth/pages/login/login.component';
 import { FooterComponent } from './shared/components/sctruct/footer/footer.component';
 
 @Component({

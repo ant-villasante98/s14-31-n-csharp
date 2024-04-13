@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild, inject, input } from '@angular/core';
-import { AuthService } from '../modals/login/services/auth.service';
 import { QrService } from './services/qr.service';
 import { HtmlParser } from '@angular/compiler';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-test',
@@ -34,7 +34,7 @@ export class TestComponent implements OnInit {
     //       this.svgContent.nativeElement.innerHTML = this.svgElement;
     //     }
     //   })
-    this._qrService.test().subscribe()
+    // this._qrService.test().subscribe()
   }
 
   decodeHtml(html: string): string {
@@ -43,14 +43,6 @@ export class TestComponent implements OnInit {
     return txt.value;
   }
 
-  submitlogin() {
-    this._authService.login({ email: "antonio@email.com", password: "Password1!" })
-      .subscribe({
-        next: (data) => {
-          this.router.navigateByUrl("/");
-        }
-      })
-  }
 
   getAuthUser() {
     let res = JSON.parse(localStorage.getItem("value") ?? "")
