@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { NavbarFooterComponent } from '../../navbar/navbar.component';
+import { NavbarFooterComponent } from '../../navbar-footer/navbar.component';
 
 @Component({
   selector: 'app-navbar',

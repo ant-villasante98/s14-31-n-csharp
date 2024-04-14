@@ -6,8 +6,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --min-main-container: calc(100vh - 88px);
+}
+
 
 .text-yanone {
     font-family: "Yanone Kaffeesatz", sans-serif;
 
+}
+
+body{
+    position: relative;
+}
+
+.min-h-container{
+    height: var(--min-main-container);
 }
