@@ -1,7 +1,61 @@
-<div #svgContent></div>
+<div class="w-full h-[--min-main-container] flex flex-col items-center justify-evenly py-8 md:py-0 md:flex-row-reverse">
+    <div class="min-h-container flex-1 bg-transparent flex items-center justify-center w-full">
+        <form [formGroup]="formLogin"
+            class="py-11  bg-transparent w-[300px] md:w-[70%] md:h-[auto] rounded-2xl shadow-2xl flex flex-col items-center justify-center gap-4 md:gap-8 md:z-10">
+            <h1 class="text- md:text-3xl font-bold text-[#56523D]">LOGIN</h1>
+            <div class="flex flex-col items-center gap-4">
 
-<!-- <img src="http://localhost:5065/api/qr/get-svg/123" alt=""> -->
+                <!-- Campo de email -->
+                <div class="relative">
+                    <input formControlName="email" type="text" name="username" placeholder="Email"
+                        class="px-4 py-2 rounded-md w-[200px] h-[36px] md:w-64 outline-none border-none shadow-inner placeholder:text-gray-300" />
 
-<button type="button" (click)="getAuthUser()"
-    class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Get
-    Value</button>
+                    @if(email.touched && email.errors?.['required']){
+                    <div class="absolute -top-[110%] px-3 py-2 text-sm font-medium rounded-lg shadow-sm  bg-red-600">
+                        Email Requerido
+                        <div class="tooltip-arrow"></div>
+                    </div>
+                    }@if(email.touched && email.errors?.['email']){
+                    <div class="absolute -top-[110%] px-3 py-2 text-sm font-medium rounded-lg shadow-sm  bg-red-600">
+                        Email invalido
+                        <div class="tooltip-arrow"></div>
+                    </div>
+                    }
+                </div>
+
+                <!-- Campo de Contraseña -->
+                <div class="relative">
+                    <input formControlName="password" type="password" name="password" placeholder="Contraseña"
+                        class="px-4 py-2 mt-2 rounded-md w-[200px] h-[36px] md:w-64 outline-none border-none shadow-inner placeholder:text-gray-300" />
+                    @if(password.touched && password.errors?.['required']){
+                    <div class="absolute -bottom-[110%] px-3 py-2 text-sm font-medium rounded-lg shadow-sm  bg-red-600">
+                        Contraseña Requerido
+                        <div class="tooltip-arrow"></div>
+                    </div>
+                    }@if(password.touched && password.errors?.['pattern'] ){
+                    <div class="absolute top-[110%] px-3 py-2 text-sm font-medium rounded-lg shadow-sm  bg-red-600">
+                        <p>
+                            Contraseña debe contener: </p>
+                        <p>- al menos una minuscula o mayusculas.</p>
+                        <p>- al menos numero.</p>
+                        <p>- al menos una u caracter ({{"@$!%*?&"}}).</p>
+                        <div class="tooltip-arrow"></div>
+                    </div>
+                    }
+                </div>
+            </div>
+            <button (click)="submitLogin()" type="button" [disabled]="!submitState()"
+                class="mt-6 bg-[#F4DA5D] font-bold px-4 py-2 rounded-full shadow-lg shadow-bottom hover:bg-gray-200 transition-colors duration-300">
+                Iniciar sesión
+            </button>
+        </form>
+    </div>
+    <div class="md:flex-1 flex items-center justify-center relative md:h-full">
+        <div class="hidden md:block md:bg-cover bg-center md:absolute inset-0 md:h-full md:w-[50vw]"
+            style="background-image: url('assets/login-bg-full.jpeg')"></div>
+        <img src="assets/Logo-Circulo.png" alt="" class="h-28 z-50 md:h-48" />
+    </div>
+</div>
+<!-- {{this.formLogin.errors | json}}
+{{email.errors | json}}
+{{password.errors | json}} -->

@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service'; 
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { UserLogin } from '../../../../models/user-login';
 import { AuthManagerService } from '../../../../shared/services/auth-manager.service';
@@ -20,10 +20,14 @@ export class LoginComponent implements OnInit {
 
   submitState = signal<boolean>(true)
 
+  showSpinnerLogin = signal<boolean>(false)
+
+  showUnauthorization = signal<boolean>(false)
+
   formLogin: FormGroup = new FormGroup({});
 
+  private formBuilder: FormBuilder = inject(FormBuilder);
   constructor(
-    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -35,16 +39,25 @@ export class LoginComponent implements OnInit {
     this.autManager.getCredentials();
   }
 
+  get email() {
+    return this.formLogin.controls['email'];
+  }
+  get password() {
+    return this.formLogin.controls['password'];
+  }
+
   submitLogin(): void {
+    // TODO: mejorar logica
     this.submitState.set(false);
-    
-    if (this.formLogin.invalid)
-    {
-      this.submitState.set(true);          
+
+    if (this.formLogin.invalid) {
+      this.submitState.set(true);
       return;
     }
+    this.showUnauthorization.set(false)
 
     console.log("Realizando peticion")
+    this.showSpinnerLogin.set(true);
     let userlogin: UserLogin = this.formLogin.value as UserLogin;
     this._authService.login(userlogin)
       .subscribe({
@@ -52,10 +65,14 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl("/");
         },
         error: (errors: any) => {
+          this.showUnauthorization.set(true)
           this.submitState.set(true)
+          this.showSpinnerLogin.set(false);
+
         },
         complete: () => {
-          this.submitState.set(true);          
+          this.submitState.set(true);
+          this.showSpinnerLogin.set(false);
         }
       })
   }
