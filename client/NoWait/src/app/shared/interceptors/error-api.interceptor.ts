@@ -1,7 +1,7 @@
 import { HttpErrorResponse, HttpInterceptorFn, HttpStatusCode } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { EMPTY, catchError, concatMap, throwError } from 'rxjs';
-import { AuthService } from '../../pages/auth/services/auth.service'; 
+import { AuthService } from '../../pages/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { EnvService } from '../services/env.service';
 
