@@ -4,11 +4,12 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { UserLogin } from '../../../../models/user-login';
 import { AuthManagerService } from '../../../../shared/services/auth-manager.service';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, JsonPipe],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -32,8 +33,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formLogin = this.formBuilder.group({
-      email: ["", Validators.compose([Validators.required, Validators.email])],
-      password: ["", Validators.compose([Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)])]
+      email: ["", Validators.compose([Validators.required, Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)])],
+      password: ["", Validators.compose([Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).*$/), Validators.minLength(6)])]
     })
 
     this.autManager.getCredentials();
@@ -47,13 +48,14 @@ export class LoginComponent implements OnInit {
   }
 
   submitLogin(): void {
+
+    this.formLogin.markAllAsTouched()
     // TODO: mejorar logica
-    this.submitState.set(false);
 
     if (this.formLogin.invalid) {
-      this.submitState.set(true);
       return;
     }
+
     this.showUnauthorization.set(false)
 
     console.log("Realizando peticion")
