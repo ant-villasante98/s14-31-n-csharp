@@ -6,8 +6,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    --min-main-container: calc(100vh - 88px);
+:root {
+    --min-main-container: calc(100dvh - 88px);
 }
 
 
@@ -16,10 +16,17 @@
 
 }
 
-body{
+body {
     position: relative;
 }
 
-.min-h-container{
+.min-h-container {
     height: var(--min-main-container);
+}
+
+@media (min-width: 768px) {
+
+    :root {
+        --min-main-container: calc(100vh - 88px);
+    }
 }
