@@ -22,7 +22,7 @@ export const routes: Routes = [
     {
         // Componente de prueba
         path: 'test-component',
-        loadChildren: () => import('./pages/test/test.component').then(c => c.TestComponent),
+        loadComponent: () => import('./pages/test/test.component').then(c => c.TestComponent),
     },
     {
         path: '',
