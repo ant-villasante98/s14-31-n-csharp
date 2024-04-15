@@ -7,15 +7,22 @@ import { JsonPipe, NgClass } from '@angular/common';
 import { AuthManagerService } from '../../shared/services/auth-manager.service';
 import { UserLogin } from '../../models/user-login';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { SearchModalComponent } from './modals/search-modal/search-modal.component';
 
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [NgClass, ReactiveFormsModule, JsonPipe],
+  imports: [NgClass, ReactiveFormsModule, JsonPipe, SearchModalComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.css'
 })
 export class TestComponent implements OnInit {
+  ngOnInit(): void {
+  }
+
+  showSearchModal = signal<boolean>(true)
+
+
   tooltipState = signal(false);
 
   private _qrService = inject(QrService)
@@ -30,35 +37,7 @@ export class TestComponent implements OnInit {
 
   submitState = signal<boolean>(true)
 
-  formLogin: FormGroup = new FormGroup({});
-  private formBuilder: FormBuilder = inject(FormBuilder);
 
-  // getters
-  get email() {
-    return this.formLogin.controls['email'];
-  }
-  get password() {
-    return this.formLogin.controls['password'];
-  }
-  ngOnInit(): void {
-    this.formLogin = this.formBuilder.group({
-      email: ["", Validators.compose([Validators.required, Validators.email])],
-      password: ["as", Validators.compose([Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)])]
-    })
-
-    this.email.untouched
-    this.autManager.getCredentials();
-    // optener el svg de la response
-    // this._qrService.getSVGEncoden(126)
-    //   .subscribe({
-    //     next: (res: any) => {
-
-    //       this.svgElement = this.decodeHtml(res.svgValue);
-    //       this.svgContent.nativeElement.innerHTML = this.svgElement;
-    //     }
-    //   })
-    // this._qrService.test().subscribe()
-  }
 
   decodeHtml(html: string): string {
     let txt = document.createElement("textarea");
@@ -73,37 +52,5 @@ export class TestComponent implements OnInit {
     console.log(res)
   }
 
-  mostrar() {
-    this.tooltipState.set(true)
-    this.formLogin.valid
-  }
-  cerrar() {
-    this.tooltipState.set(false)
-  }
-
-
-  submitLogin(): void {
-    this.submitState.set(false);
-
-    if (this.formLogin.invalid) {
-      this.submitState.set(true);
-      return;
-    }
-
-    console.log("Realizando peticion")
-    let userlogin: UserLogin = this.formLogin.value as UserLogin;
-    this._authService.login(userlogin)
-      .subscribe({
-        next: (data) => {
-          this.router.navigateByUrl("/");
-        },
-        error: (errors: any) => {
-          this.submitState.set(true)
-        },
-        complete: () => {
-          this.submitState.set(true);
-        }
-      })
-  }
 
 }
