@@ -7,6 +7,7 @@ import { JsonPipe, NgClass } from '@angular/common';
 import { AuthManagerService } from '../../shared/services/auth-manager.service';
 import { UserLogin } from '../../models/user-login';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ShoppingCartManagerService } from '../../shared/services/shopping-cart-manager.service';
 
 @Component({
   selector: 'app-test',
@@ -27,6 +28,8 @@ export class TestComponent implements OnInit {
   private _authService = inject(AuthService)
   private router = inject(Router)
   private autManager = inject(AuthManagerService)
+
+  private _cartManager = inject(ShoppingCartManagerService)
 
   submitState = signal<boolean>(true)
 
@@ -104,6 +107,19 @@ export class TestComponent implements OnInit {
           this.submitState.set(true);
         }
       })
+  }
+
+  addItem() {
+    this._cartManager.addItem({
+      id: 1,
+      amount: 3,
+      name: 'plato',
+      price: 340.5
+    });
+  }
+
+  removeItem() {
+    this._cartManager.removeItem(1);
   }
 
 }
