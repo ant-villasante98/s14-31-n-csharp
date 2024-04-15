@@ -8,11 +8,13 @@ import { AuthManagerService } from '../../shared/services/auth-manager.service';
 import { UserLogin } from '../../models/user-login';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SearchModalComponent } from './modals/search-modal/search-modal.component';
+import { ShopppingCartComponent } from './modals/shoppping-cart/shoppping-cart.component';
+import { MainModalComponent } from './modals/main-modal/main-modal.component';
 
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [NgClass, ReactiveFormsModule, JsonPipe, SearchModalComponent],
+  imports: [NgClass, ReactiveFormsModule, JsonPipe, SearchModalComponent, ShopppingCartComponent, MainModalComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.css'
 })
@@ -20,7 +22,9 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showSearchModal = signal<boolean>(true)
+  showSearchModal = signal<boolean>(false)
+
+  showCart = signal<boolean>(true)
 
 
   tooltipState = signal(false);
