@@ -16,7 +16,7 @@ export const routes: Routes = [
         children: authRoutes
     },
     {
-        path: 'seach',
+        path: 'search',
         component: SearchComponent
     }
     ,
