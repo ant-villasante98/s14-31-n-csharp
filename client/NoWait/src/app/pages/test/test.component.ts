@@ -7,7 +7,7 @@ import { JsonPipe, NgClass } from '@angular/common';
 import { AuthManagerService } from '../../shared/services/auth-manager.service';
 import { UserLogin } from '../../models/user-login';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CardShopComponent } from '../../shared/components/card-shop/card-shop.component';
+import { CardShopComponent } from '../search/components/card-shop/card-shop.component';
 import { SearchModalComponent } from './modals/search-modal/search-modal.component';
 
 @Component({
