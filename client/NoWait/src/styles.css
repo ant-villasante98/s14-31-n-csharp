@@ -13,7 +13,9 @@
     --h-navbar: 56px;
 
     --m-t-content: calc(var(--space-t-navbar) + var(--h-navbar));
-    --warning: #FF1D25
+    --primary: #E2C30A;
+    --warning: #FF1D25;
+    --info: #45BAAC;
 }
 
 

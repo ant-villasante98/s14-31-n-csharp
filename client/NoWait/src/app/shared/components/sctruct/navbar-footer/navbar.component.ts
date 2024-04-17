@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,5 +9,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarFooterComponent {
+  @Input({ alias: "showSearchModal", required: true }) showSearchModal!: WritableSignal<boolean>;
 
 }

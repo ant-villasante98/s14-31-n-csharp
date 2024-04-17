@@ -2,13 +2,13 @@
   class="h-[--h-navbar] md:bg-[#E2C30A] rounded-[20px] mx-9 absolute mt-[--space-t-navbar] top-0 left-0 right-0 z-50 md:px-5 md:mt-[--space-t-navbar]">
   <div class="flex flex-wrap items-center justify-between py-2">
     <a routerLink="/home" class="flex">
-      <img src="assets/nowait-yellow-dark.svg" class="h-7" alt="Flowbite Logo" />
+      <img src="assets/nowait.svg" class="h-7" alt="Flowbite Logo" />
     </a>
 
 
     <!-- barra de busqueda -->
     <div class="items-center justify-end hidden w-full md:flex md:flex-1 md:w-auto md:order-1" id="navbar-search">
-      <div class="w-9/12 relative hidden md:block">
+      <!-- <div class="w-9/12 relative hidden md:block" (click)="showSearchModal.set(true)">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
           <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
             fill="none" viewBox="0 0 20 20">
@@ -20,7 +20,12 @@
         <input type="text" id="search-navbar"
           class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 placeholder:text-lg"
           placeholder="Buscar comercio, comida o categoria" />
-      </div>
+      </div> -->
+      <button (click)="showSearchModal.set(true)" class=" inline-flex items-center w-max h-10 justify-center text-lg text-white rounded-2xl px-4 border bg-[--info] shadow-lg drop-shadow-md hover:text-black hover:bg-white
+        border-[--info]" aria-controls="navbar-search" aria-expanded="false">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <samp class="pl-4">Buscar</samp>
+      </button>
     </div>
 
     <!-- carrito -->
@@ -49,4 +54,5 @@
     </div>
   </div>
 </nav>
-<app-navbar-footer></app-navbar-footer>
+<app-navbar-footer [showSearchModal]="showSearchModal"></app-navbar-footer>
+<app-search-modal [showModal]="showSearchModal"></app-search-modal>

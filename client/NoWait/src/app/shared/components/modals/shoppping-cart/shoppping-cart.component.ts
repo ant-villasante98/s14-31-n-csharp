@@ -1,5 +1,5 @@
 import { Component, Input, WritableSignal } from '@angular/core';
-import { MainModalComponent } from '../main-modal/main-modal.component';
+import { MainModalComponent } from '../../../../shared/components/modals/main-modal/main-modal.component';
 
 @Component({
   selector: 'app-shoppping-cart',

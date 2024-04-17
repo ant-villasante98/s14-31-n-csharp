@@ -5,13 +5,11 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth/services/auth.service';
 import { JsonPipe, NgClass } from '@angular/common';
 import { AuthManagerService } from '../../shared/services/auth-manager.service';
-import { UserLogin } from '../../models/user-login';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardShopComponent } from '../search/components/card-shop/card-shop.component';
-import { SearchModalComponent } from './modals/search-modal/search-modal.component';
-import { SearchFoodService } from '../search/services/search-food.service';
-import { ShopppingCartComponent } from './modals/shoppping-cart/shoppping-cart.component';
-import { MainModalComponent } from './modals/main-modal/main-modal.component';
+import { SearchModalComponent } from '../../shared/components/modals/search-modal/search-modal.component';
+import { MainModalComponent } from '../../shared/components/modals/main-modal/main-modal.component';
+import { ShopppingCartComponent } from '../../shared/components/modals/shoppping-cart/shoppping-cart.component';
 
 @Component({
   selector: 'app-test',
@@ -22,12 +20,11 @@ import { MainModalComponent } from './modals/main-modal/main-modal.component';
 })
 export class TestComponent implements OnInit {
   ngOnInit(): void {
-    this.testSearchFood("pi jf")
   }
 
   showSearchModal = signal<boolean>(false)
 
-  showCart = signal<boolean>(true)
+  showCart = signal<boolean>(false)
 
 
   tooltipState = signal(false);
