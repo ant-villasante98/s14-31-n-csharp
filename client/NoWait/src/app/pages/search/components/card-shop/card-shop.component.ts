@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SearchShop } from '../../../../models/search-result';
+import { ResposeSearchFood } from '../../../../models/search-result';
 import { UpperCasePipe } from '@angular/common';
 
 @Component({
@@ -11,5 +11,5 @@ import { UpperCasePipe } from '@angular/common';
 })
 export class CardShopComponent {
 
-  @Input({ alias: 'item-resul', required: true }) item!: SearchShop;
+  @Input({ alias: 'item-resul', required: true }) item!: ResposeSearchFood;
 }
