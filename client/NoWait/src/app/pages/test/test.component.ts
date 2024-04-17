@@ -9,6 +9,7 @@ import { UserLogin } from '../../models/user-login';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardShopComponent } from '../search/components/card-shop/card-shop.component';
 import { SearchModalComponent } from './modals/search-modal/search-modal.component';
+import { SearchFoodService } from '../search/services/search-food.service';
 
 @Component({
   selector: 'app-test',
@@ -19,6 +20,7 @@ import { SearchModalComponent } from './modals/search-modal/search-modal.compone
 })
 export class TestComponent implements OnInit {
   ngOnInit(): void {
+    this.testSearchFood("pi jf")
   }
 
   showSearchModal = signal<boolean>(true)
@@ -46,7 +48,6 @@ export class TestComponent implements OnInit {
     return txt.value;
   }
 
-
   getAuthUser() {
     let res = JSON.parse(localStorage.getItem("value") ?? "")
     console.log("-- resultado");
@@ -54,4 +55,7 @@ export class TestComponent implements OnInit {
   }
 
 
+  testSearchFood(q: string) {
+    this.router.navigate(['/search'], { queryParams: { q } })
+  }
 }

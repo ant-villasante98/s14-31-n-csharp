@@ -1,56 +1,66 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit, inject, signal } from '@angular/core';
 import { CardShopComponent } from './components/card-shop/card-shop.component';
-import { SearchShop } from '../../models/search-result';
+import { ResposeSearchFood } from '../../models/search-result';
+import { SearchFoodService } from './services/search-food.service';
+import { UpperCasePipe } from '@angular/common';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CardShopComponent],
+  imports: [CardShopComponent, UpperCasePipe],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
 
+  finishSearch = signal<boolean>(false)
 
-  listResult: SearchShop[] = result;
+  private route = inject(ActivatedRoute)
+
+  qSearch = signal<string>("")
+
+  private _searchFoodService = inject(SearchFoodService)
+  listResult = signal<ResposeSearchFood[]>([]);
+
+  ngOnInit(): void {
+
+    this.observerUrl()
+  }
+
+  observerUrl() {
+    console.log('observando')
+    this.route.queryParamMap
+      .pipe(
+        switchMap((params: ParamMap) => {
+          let q = params.get('q') ?? "";
+          this.qSearch.set(q);
+          return of(params);
+        })
+      ).subscribe({
+        next: () => {
+          this.search(this.qSearch());
+        }
+      })
+  }
+
+  search(q: string) {
+    this.finishSearch.set(false);
+    this._searchFoodService.search(q).subscribe({
+      next: (res) => {
+        console.log(res)
+        this.listResult.set(res)
+      },
+      error: () => {
+        this.finishSearch.set(true);
+      },
+      complete: () => {
+        this.finishSearch.set(true);
+      }
+    }
+    );
+  }
+
 
 }
-
-export const result: SearchShop[] = [
-  {
-    id: 1,
-    name: "BURGER 1982 ",
-    description: "Hacemos las mejores hamburguesas del mundo en tiempo récord.",
-    url: "https://iili.io/J8xeO3F.png"
-  },
-  {
-    id: 1,
-    name: "KOKÍ RESTO",
-    description: "Comida rica y abundante.",
-    url: "https://iili.io/J8xOm11.png"
-  },
-  {
-    id: 1,
-    name: "ENTRE panes",
-    description: "Delicioso y casero.",
-    url: "https://iili.io/J8xOOb4.png"
-  },
-  {
-    id: 1,
-    name: "Pattiz",
-    description: "Comida rica y abundante.",
-    url: "https://i.pinimg.com/736x/ab/80/bd/ab80bdba53a516e12e12f26a336f6f7e.jpg"
-  },
-  {
-    id: 1,
-    name: "HAMBURGUESA pink",
-    description: "Pan de remolacha.",
-    url: "https://i.pinimg.com/736x/f8/32/a5/f832a59135baa1b4d46c5000565e1e36.jpg"
-  },
-  {
-    id: 1,
-    name: "The Good Life",
-    description: "Disfruta la vida.",
-    url: "https://i.pinimg.com/736x/83/2c/0d/832c0d93f563c9a1a2ebb14611b09bb6.jpg"
-  },
-]
