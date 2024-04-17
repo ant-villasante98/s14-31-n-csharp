@@ -7,19 +7,22 @@ import { JsonPipe, NgClass } from '@angular/common';
 import { AuthManagerService } from '../../shared/services/auth-manager.service';
 import { UserLogin } from '../../models/user-login';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CardShopComponent } from '../search/components/card-shop/card-shop.component';
 import { SearchModalComponent } from './modals/search-modal/search-modal.component';
+import { SearchFoodService } from '../search/services/search-food.service';
 import { ShopppingCartComponent } from './modals/shoppping-cart/shoppping-cart.component';
 import { MainModalComponent } from './modals/main-modal/main-modal.component';
 
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [NgClass, ReactiveFormsModule, JsonPipe, SearchModalComponent, ShopppingCartComponent, MainModalComponent],
+  imports: [NgClass, ReactiveFormsModule, JsonPipe, SearchModalComponent, CardShopComponent, ShopppingCartComponent, MainModalComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.css'
 })
 export class TestComponent implements OnInit {
   ngOnInit(): void {
+    this.testSearchFood("pi jf")
   }
 
   showSearchModal = signal<boolean>(false)
@@ -49,7 +52,6 @@ export class TestComponent implements OnInit {
     return txt.value;
   }
 
-
   getAuthUser() {
     let res = JSON.parse(localStorage.getItem("value") ?? "")
     console.log("-- resultado");
@@ -57,4 +59,7 @@ export class TestComponent implements OnInit {
   }
 
 
+  testSearchFood(q: string) {
+    this.router.navigate(['/search'], { queryParams: { q } })
+  }
 }

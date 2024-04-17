@@ -1,44 +1,25 @@
 <nav
-  class="h-[56px] md:bg-[#E2C30A] rounded-[20px] mx-9 absolute mt-8 top-0 left-0 right-0 z-50 md:px-5 md:mt-4"
->
+  class="h-[--h-navbar] md:bg-[#E2C30A] rounded-[20px] mx-9 absolute mt-[--space-t-navbar] top-0 left-0 right-0 z-50 md:px-5 md:mt-[--space-t-navbar]">
   <div class="flex flex-wrap items-center justify-between py-2">
-    <a routerLink="/home" class="flex " >
-      <img src="../assets/nowait.svg" class="h-7" alt="Flowbite Logo" />
+    <a routerLink="/home" class="flex">
+      <img src="assets/nowait-yellow-dark.svg" class="h-7" alt="Flowbite Logo" />
     </a>
 
-    
+
     <!-- barra de busqueda -->
-    <div
-      class="items-center justify-end hidden w-full md:flex md:flex-1 md:w-auto md:order-1"
-      id="navbar-search"
-    >
+    <div class="items-center justify-end hidden w-full md:flex md:flex-1 md:w-auto md:order-1" id="navbar-search">
       <div class="w-9/12 relative hidden md:block">
-        <div
-          class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
-        >
-          <svg
-            class="w-4 h-4 text-gray-500 dark:text-gray-400"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 20 20"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-            />
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
           </svg>
           <span class="sr-only">Search icon</span>
         </div>
-        <input
-          type="text"
-          id="search-navbar"
+        <input type="text" id="search-navbar"
           class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 placeholder:text-lg"
-          placeholder="Buscar comercio, comida o categoria"
-        />
+          placeholder="Buscar comercio, comida o categoria" />
       </div>
     </div>
 
@@ -47,8 +28,8 @@
       <button type="button"
         class="inline-flex items-center p-2 w-10 h-10 md:h-8 justify-center text-sm text-gray-500 rounded-lg "
         aria-controls="navbar-search" aria-expanded="false">
-        <svg class="min-w-10 min-h-10 md:min-w-8 text-[#ff0000be] md:text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-          viewBox="0 0 24 24">
+        <svg class="min-w-10 min-h-10 md:min-w-8 text-[#ff0000be] md:text-gray-800 " aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
         </svg>
@@ -56,12 +37,11 @@
     </div>
     <!-- usuario -->
     <div class="hidden md:flex md:order-3 md:mx-3">
-      <a 
-        [routerLink]="['/auth']"
+      <a [routerLink]="['/auth']"
         class="inline-flex items-center w-10 h-10 justify-center text-sm text-gray-500 rounded-lg "
         aria-controls="navbar-search" aria-expanded="false">
-        <svg class="w-8 h-8 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-          height="24" fill="none" viewBox="0 0 24 24">
+        <svg class="w-8 h-8 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" stroke-width="2"
             d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
         </svg>
