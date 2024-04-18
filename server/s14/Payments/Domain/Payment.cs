@@ -1,6 +1,5 @@
-﻿using S14.Payments.Common.Utilities;
-using S14.Payments.Domain.Enums;
-using S14.Orders.Domain;
+﻿using S14.Orders.Domain;
+using S14.Payments.Common.Utilities;
 
 namespace S14.Payments.Domain;
 
@@ -13,8 +12,10 @@ public class Payment
 
     public DateTime PaymentDate { get; set; }
 
+    // public string Consecutive { get; set; }
+
     public ICollection<PaymentError> Errors { get; set; }
 
     // Bandera para saber si el pago se realizo correctamente
-    public bool IsValid { get; set; } = false;
+    public bool IsValid { get; set; } = true;
 }

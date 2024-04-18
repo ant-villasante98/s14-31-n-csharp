@@ -1,3 +1,5 @@
+using S14.Orders.Domain.Enums;
+
 namespace S14.Orders.Domain
 {
     public class HistoryState

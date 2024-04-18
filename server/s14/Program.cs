@@ -1,13 +1,14 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using S14.Base.Infraestructure.Data;
+using S14.MenuSystem.Infraestructure;
+using S14.MenuSystem.Infraestructure.DI;
 using S14.Orders.Infrastructure;
-using S14.UserManagment.Infraestructure;
-using Swashbuckle.AspNetCore.Filters;
+using S14.Payments.Infraestructure.DI;
 using S14.QR.Infrastructure.DI;
+using S14.UserManagment.Infraestructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -81,17 +82,20 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// inyectar servicios desde un archivo externo a Program.cs
 builder.Services.AddCors(policyBuilder =>
     policyBuilder.AddDefaultPolicy(policy =>
         policy
             .AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod()));
-            
-builder.Services.OrdersSystemServices(builder.Configuration);
 
+// inyectar servicios desde un archivo externo a Program.cs
+builder.Services.OrdersSystemServices(builder.Configuration);
 builder.Services.AddQrDependencyInjection(builder.Configuration);
+builder.Services.PaymentsSystemServices(builder.Configuration);
+builder.Services.MenuSystemServices(builder.Configuration);
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
@@ -102,9 +106,9 @@ app.UseSwaggerUI(options =>
     options.EnableTryItOutByDefault());
 
 // Add Me endpoint to get custom values from AppUser
-//app.MapGroup("api/auth")
-//    .MapIdentityApi<AppUser>()
-//    .WithTags("Auth api");
+app.MapGroup("api/auth")
+    .MapIdentityApi<AppUser>()
+    .WithTags("Auth api");
 
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
@@ -112,5 +116,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// app.CreateSchemas();
 
 app.Run();

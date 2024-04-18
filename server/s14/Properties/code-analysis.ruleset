@@ -43,6 +43,7 @@
     <Rule Id="SA1026" Action="Error" />
     <Rule Id="SA1133" Action="None" />
     <Rule Id="SA1200" Action="Error" />
+    <Rule Id="SA1309" Action="None" />
     <Rule Id="SA1400" Action="Error" />
     <Rule Id="SA1413" Action="None" />
     <Rule Id="SA1600" Action="None" />
@@ -51,5 +52,6 @@
     <Rule Id="SA1615" Action="None" />
     <Rule Id="SA1625" Action="None" />
     <Rule Id="SA1633" Action="None" />
+    <Rule Id="SX1309" Action="Warning" />
   </Rules>
 </RuleSet>

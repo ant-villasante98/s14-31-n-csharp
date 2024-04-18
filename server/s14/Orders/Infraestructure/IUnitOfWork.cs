@@ -5,7 +5,13 @@ namespace S14.Orders.Infrastructure
     public interface IUnitOfWork : IDisposable
     {
         IOrderRepository OrderRepository { get; }
-        
-        Task<int> CommitAsync();
+
+        Task<int> SaveChangesAsync();
+
+        Task BeginTransactionAsync();
+
+        Task CommitTransactionAsync();
+
+        Task RollbackAsync();
     }
 }

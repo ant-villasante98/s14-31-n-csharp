@@ -1,83 +1,125 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Security.Cryptography;
+using AutoMapper;
+using S14.MenuSystem.Services;
+using S14.Orders.Domain;
+using S14.Orders.Domain.Enums;
+using S14.Orders.Infrastructure.Repositories;
 using S14.Payments.Common.Dtos;
 using S14.Payments.Common.Utilities;
 using S14.Payments.Domain;
-using S14.Payments.Domain.Enums;
 using S14.Payments.Infraestructure;
 
 namespace S14.Payments.Services;
 
-public class PaymentService(PaymentsSystemContext _context, IMapper _mapper)
-    : IPaymentService
+public class PaymentService(PaymentsSystemContext _context,
+                            IMapper _mapper,
+                            IOrderRepository _orderRepository,
+                            IShopService _shopService)
+   : IPaymentService
 {
-    public async Task<PaymentResponse> CreatePayment(int orderId)
+    public async Task<PaymentResponse> CreatePayment(Order? order)
     {
-        using (var transaction = _context.Database.BeginTransactionAsync())
+        var payment = new Payment()
         {
-            try
-            {
-                var payment = new Payment()
-                {
-                    PaymentDate = DateTime.UtcNow
-                };
-                var paymentResponse = new PaymentResponse();
+            PaymentDate = DateTime.UtcNow,
+            // Consecutive = AleatoringNumber(),
+            Errors = new List<PaymentError>()
+        };
 
-                // var order = _unitOfWork.OrderRepository.GetOrderByIdAsync(orderId);
-                // ArgumentNullException.ThrowIfNull(order);
-                // if (order.Status == OrderStatus.Canceled)
-                // {
-                //    payment.Errors.add(new PaymentError
-                //    {
-                //         Code = "088",
-                //         Description = $"Error: payment not completed, the order with id {order.Id} has been canceled"
-                //    });
-                // }
-                // else
-                // {
-                // List<(int, bool)> validations = menuService.ValidateOrder(order.Id);
-                if (!validations.count > 0)
+        try
+        {
+            // var order = await _orderRepository.GetOrderByIdAsync(orderId);
+            if (order is null)
+            {
+                // var error = await _context.PaymentError.FirstOrDefaultAsync(e => e.Code == "022");
+                payment.Errors.Add(new PaymentError
                 {
-                    foreach (var tupla in validations)
+                    Code = "022",
+                    Description = "Error: nonexistent order"
+                });
+                payment.IsValid = false;
+            }
+            else
+            {
+                if (order.Status == OrderStatus.Canceled)
+                {
+                    payment.Errors.Add(new PaymentError
                     {
-                        if (!tupla.Item2)
-                        {
-                            payment.Errors.Add(new PaymentError
-                            {
-                                Code = "123",
-                                Description = $"Error: payment not completed, the item with id {tupla.Item1} of your order is not in stock at this time"
-                            });
-                        }
-                    }
+                        Code = "088",
+                        Description = $"Error: payment not completed, the order with id {order.Id} has been canceled"
+                    });
+                    payment.IsValid = false;
                 }
                 else
                 {
-                    // payment.Order = order;
-                    payment.OrderId = order.Id;
-                    var paymentCreated = _context.Payments.Add(payment).Entity;
-                    if (paymentCreated is null)
+                    if (!(order.Details.Count > 0))
                     {
                         payment.Errors.Add(new PaymentError
                         {
-                            Code = "037",
-                            Description = "Error: payment could not be completed, payment system down"
+                            Code = "064",
+                            Description = $"Error: payment not completed, order with id {order.Id} does not contain products"
                         });
+                        payment.IsValid = false;
                     }
                     else
                     {
-                        paymentCreated.IsValid = true;
-                        await _context.Database.CommitTransactionAsync();
-                        paymentResponse = _mapper.Map<PaymentResponse>(paymentCreated);
+                        var verifyResponse = _shopService.VerifyStockByOrder(order.Id);
+                        if (verifyResponse is null)
+                        {
+                            payment.Errors.Add(new PaymentError
+                            {
+                                Code = "102",
+                                Description = $"Error: payment not completed, the stock of the products contained in the order {order.Id} could not be verified"
+                            });
+                            payment.IsValid = false;
+                        }
+                        else
+                        {
+                            var validations = verifyResponse.Items.ToList();
+                            foreach (var detail in validations)
+                            {
+                                if (!detail.IsAvailable)
+                                {
+                                    payment.Errors.Add(new PaymentError
+                                    {
+                                        Code = "123",
+                                        Description = $"Error: payment not completed, the item with id {detail.ItemId} of your order is not in stock at this time"
+                                    });
+                                    payment.IsValid = false;
+                                }
+                            }
+                        }
                     }
                 }
 
-                return paymentResponse;
+                payment.OrderId = order.Id;
             }
-            catch (Exception ex)
-            {
-                await _context.Database.RollbackTransactionAsync();
-                throw new Exception("Error registering payment", ex);
-            }
+
+            _context.Payments.Add(payment);
+            await _context.SaveChangesAsync();
         }
+        catch
+        {
+            payment.Errors.Add(new PaymentError
+            {
+                Code = "037",
+                Description = "Error: payment could not be completed, payment system down"
+            });
+            payment.IsValid = false;
+        }
+
+        var paymentResponse = _mapper.Map<PaymentResponse>(payment);
+        return paymentResponse;
+    }
+
+    public string AleatoringNumber()
+    {
+        byte[] randomNumber = new byte[6];
+        using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+        {
+            rng.GetBytes(randomNumber);
+        }
+
+        return Convert.ToBase64String(randomNumber);
     }
 }

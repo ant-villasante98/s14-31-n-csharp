@@ -3,7 +3,7 @@ using S14.Payments.Domain;
 
 namespace S14.Payments.Infraestructure;
 
-public partial class PaymentsSystemContext : DbContext
+public class PaymentsSystemContext : DbContext
 {
     public PaymentsSystemContext(DbContextOptions<PaymentsSystemContext> dbContext) 
         : base(dbContext)

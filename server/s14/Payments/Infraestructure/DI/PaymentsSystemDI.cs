@@ -10,7 +10,7 @@ namespace S14.Payments.Infraestructure.DI
         {
             services.AddDbContext<PaymentsSystemContext>(options => options.UseSqlServer(configuration.GetConnectionString("CS")));
 
-            // services.AddScoped<PaymentsSystemContext>();
+            services.AddScoped<PaymentsSystemContext>();
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddAutoMapper(typeof(PaymentsMapperProfile));
         }

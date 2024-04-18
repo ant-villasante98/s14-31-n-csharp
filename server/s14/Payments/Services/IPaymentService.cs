@@ -1,11 +1,11 @@
-﻿using S14.Payments.Common.Dtos;
-using S14.Payments.Domain.Enums;
+﻿using S14.Orders.Domain;
+using S14.Payments.Common.Dtos;
 
 namespace S14.Payments.Services;
 
 public interface IPaymentService
 {
-    Task<PaymentResponse> CreatePayment(int orderId);
+    Task<PaymentResponse> CreatePayment(Order? order);
 }
 
 // Al momento de crear el pago, deberia llamar a un metodo similar al siguiente perteneciente al servicio 

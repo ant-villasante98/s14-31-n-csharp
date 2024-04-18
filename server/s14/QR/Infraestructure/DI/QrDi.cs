@@ -15,13 +15,13 @@ public static class QrDi
     public static IServiceCollection AddQrDependencyInjection(this IServiceCollection services, IConfiguration configuration)
     {
         // Configuracion mongo
-        services.AddMongoDB(configuration);
-        services.AddScoped<IQrRepository, QrRepositoryMongoDB>();
+        // services.AddMongoDB(configuration);
+       // services.AddScoped<IQrRepository, QrRepositoryMongoDB>();
 
         // Configuracion para EntityFramework
-        // services.AddDbContext<QrSystemContext>(options => options.UseSqlServer(configuration.GetConnectionString("CS")));
-        // services.AddScoped<QrSystemContext>();
-        // services.AddScoped<IQrRepository, QrRepositoryEF>()
+        services.AddDbContext<QrSystemContext>(options => options.UseSqlServer(configuration.GetConnectionString("CS")));
+        services.AddScoped<QrSystemContext>();
+        services.AddScoped<IQrRepository, QrRepositoryEF>();
 
         // services injection
         services.AddScoped<IQrService, QRService>();

@@ -13,8 +13,8 @@ namespace S14.Orders.Domain
 
         public OrderStatus Status { get; set; }
 
-        public ICollection<DetailOrder> Details { get; set; }
+        public ICollection<DetailOrder> Details { get; set; } = new List<DetailOrder>();
 
-        public ICollection<HistoryState> HistoryState { get; set; }
+        public ICollection<HistoryState> HistoryState { get; set; } = new List<HistoryState>();
     }
 }

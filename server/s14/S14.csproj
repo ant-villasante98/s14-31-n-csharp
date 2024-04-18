@@ -19,6 +19,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" NoWarn="NU1605" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.3" NoWarn="NU1605" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
 			<PrivateAssets>all</PrivateAssets>
@@ -29,11 +30,12 @@
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
 		<PackageReference Include="MongoDB.Driver" Version="2.24.0" />
 		<PackageReference Include="QRCoder" Version="1.4.3" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
 		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.1" />
 		<PackageReference Include="ZXing.Net" Version="0.16.9" />
 	</ItemGroup>
@@ -46,6 +48,7 @@
 	<ItemGroup>
 	  <Folder Include="History\Infraestructure\" />
 	  <Folder Include="MenuSystem\Infraestructure\" />
+	  <Folder Include="MenuSystem\Infraestructure\Migrations\" />
 	  <Folder Include="Notifications\Common\Dtos\" />
 	  <Folder Include="Notifications\Common\Mappers\" />
 	  <Folder Include="Notifications\Common\Utilities\" />
@@ -59,21 +62,14 @@
 	  <Folder Include="History\Controllers\" />
 	  <Folder Include="History\Domain\" />
 	  <Folder Include="History\Services\" />
-	  <Folder Include="MenuSystem\Common\Dtos\" />
-	  <Folder Include="MenuSystem\Common\Mappers\" />
 	  <Folder Include="MenuSystem\Common\Utilities\" />
-	  <Folder Include="MenuSystem\Controllers\" />
-	  <Folder Include="MenuSystem\Domain\" />
-	  <Folder Include="MenuSystem\Services\" />
 	  <Folder Include="Orders\Common\Exceptions\" />
-	  <Folder Include="Payments\Infraestructure\" />
 	  <Folder Include="Orders\Common\Dtos\" />
 	  <Folder Include="Orders\Common\Mappers\" />
 	  <Folder Include="Orders\Common\Utilities\" />
 	  <Folder Include="Orders\Controllers\" />
 	  <Folder Include="Orders\Domain\" />
 	  <Folder Include="Orders\Infraestructure\" />
-	  <Folder Include="Orders\Services\" />
 	  <Folder Include="QR\Common\Dtos\" />
 	  <Folder Include="QR\Common\Mappers\" />
 	  <Folder Include="QR\Common\Utilities\" />
@@ -88,8 +84,8 @@
 	  <Folder Include="POS\Domain\" />
 	  <Folder Include="POS\Infraestructure\" />
 	  <Folder Include="POS\Services\" />
-	  <Folder Include="Payments\Common\Dtos\" />
 	  <Folder Include="Payments\Common\Mappers\" />
+	  <Folder Include="Payments\Controllers\" />
 	  <Folder Include="Payments\Controllers\" />
 	  <Folder Include="Payments\Domain\" />
 	  <Folder Include="Payments\Services\" />

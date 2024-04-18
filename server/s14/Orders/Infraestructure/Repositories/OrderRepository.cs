@@ -8,13 +8,13 @@ namespace S14.Orders.Infrastructure.Repositories
     public class OrderRepository : IOrderRepository
     {
         private readonly OrdersSystemContext _context;
-        
+
         public OrderRepository(OrdersSystemContext context)
         {
             _context = context;
         }
 
-        public async Task<Order> GetOrderByIdAsync(int orderId)
+        public async Task<Order?> GetOrderByIdAsync(int orderId)
         {
             return await _context.Orders
                 .Include(o => o.Details)
