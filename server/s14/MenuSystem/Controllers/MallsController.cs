@@ -68,7 +68,7 @@ namespace S14.MenuSystem.Controllers
 
         // GET api/<MallsController>/5
         [HttpGet("{id}")]
-        public ActionResult<Mall> GetById(int id)
+        public ActionResult<MallResponse> GetById(int id)
         {
             var mall = mallService.GetMallById(id);
             return mall is null ? NotFound() : Ok(mall);
@@ -76,8 +76,8 @@ namespace S14.MenuSystem.Controllers
 
         [HttpGet("{mallId}/shops")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType<IEnumerable<Shop>>(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<Shop>> GetShops(int mallId)
+        [ProducesResponseType<IEnumerable<ShopResponse>>(StatusCodes.Status200OK)]
+        public ActionResult<IEnumerable<ShopResponse>> GetShops(int mallId)
         {
             try
             {
@@ -92,8 +92,8 @@ namespace S14.MenuSystem.Controllers
         // GET api/<MallsController>/shops/5
         [HttpGet("/api/shops/{id}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType<Shop>(StatusCodes.Status200OK)]
-        public ActionResult<Shop> GetShopById(int id)
+        [ProducesResponseType<ShopResponse>(StatusCodes.Status200OK)]
+        public ActionResult<ShopResponse> GetShopById(int id)
         {
             var shop = mallService.GetShopById(id);
             return shop is null ? NotFound() : Ok(shop);
@@ -101,7 +101,7 @@ namespace S14.MenuSystem.Controllers
 
         [HttpGet("/api/shops/{shopId}/menu")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType<IEnumerable<Shop>>(StatusCodes.Status200OK)]
+        [ProducesResponseType<IEnumerable<MenuItemResponse>>(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<MenuItemResponse>> GetMenu(int shopId, [FromServices] IShopService shopService)
         {
             try
@@ -117,8 +117,8 @@ namespace S14.MenuSystem.Controllers
 
         [HttpGet("/api/shops/menu/{itemId}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType<IEnumerable<Shop>>(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<MenuItemResponse>> GetMenuItem(int itemId, [FromServices] IShopService shopService)
+        [ProducesResponseType<MenuItemResponse>(StatusCodes.Status200OK)]
+        public ActionResult<MenuItemResponse> GetMenuItem(int itemId, [FromServices] IShopService shopService)
         {
             try
             {

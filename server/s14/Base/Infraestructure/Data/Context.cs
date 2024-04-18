@@ -15,8 +15,8 @@ namespace S14.Base.Infrastructure.Data
         public Context(DbContextOptions<Context> options)
             : base(options)
         {
-            Database.EnsureCreated();
-            Database.Migrate();
+          //  Database.EnsureCreated();
+          //  Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

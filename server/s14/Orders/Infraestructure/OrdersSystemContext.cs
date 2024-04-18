@@ -9,11 +9,11 @@ namespace S14.Orders.Infrastructure
 {
     public partial class OrdersSystemContext : DbContext
     {
-        public OrdersSystemContext(DbContextOptions<OrdersSystemContext> options) 
+        public OrdersSystemContext(DbContextOptions<OrdersSystemContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
-            Database.Migrate();
+            //  Database.EnsureCreated();
+            //  Database.Migrate();
         }
 
         public DbSet<Order> Orders { get; set; }

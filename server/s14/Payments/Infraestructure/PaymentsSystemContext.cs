@@ -8,8 +8,8 @@ public class PaymentsSystemContext : DbContext
     public PaymentsSystemContext(DbContextOptions<PaymentsSystemContext> dbContext) 
         : base(dbContext)
     {
-        Database.EnsureCreated();
-        Database.Migrate();
+        // Database.EnsureCreated();
+        // Database.Migrate();
     }
 
     public DbSet<Payment> Payments { get; set; }
