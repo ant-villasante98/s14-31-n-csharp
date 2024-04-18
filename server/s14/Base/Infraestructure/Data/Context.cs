@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using S14.UserManagment.Infraestructure;
 
-namespace S14.Base.Infraestructure.Data
+namespace S14.Base.Infrastructure.Data
 {
     public class Context
         : IdentityDbContext<AppUser, IdentityRole<int>, int>

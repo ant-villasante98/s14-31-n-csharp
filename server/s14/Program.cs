@@ -2,12 +2,9 @@ using System.Reflection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using S14.Base.Infraestructure.Data;
-using S14.MenuSystem.Infraestructure;
-using S14.MenuSystem.Infraestructure.DI;
-using S14.Orders.Infrastructure;
-using S14.Payments.Infraestructure.DI;
-using S14.QR.Infrastructure.DI;
+using S14.Base.Controllers.Hubs;
+using S14.Base.Infrastructure;
+using S14.Base.Infrastructure.Data;
 using S14.UserManagment.Infraestructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,17 +20,13 @@ builder.Services.AddDbContext<Context>(x => x.UseNpgsql(cs));
         }
  */
 #pragma warning restore S125 // Sections of code should not be commented out
+var hubPath = "/order-pos-hub";
 
 var cs = builder.Configuration.GetConnectionString("CS");
 builder.Services.AddDbContext<Context>(x => x.UseSqlServer(cs));
 
 // Add services to the container.
-builder.Services.AddAuthentication()
-    .AddBearerToken(IdentityConstants.BearerScheme, c =>
-    {
-        c.BearerTokenExpiration = TimeSpan.FromDays(5);
-        c.RefreshTokenExpiration = TimeSpan.FromDays(10);
-    });
+builder.Services.AuthenticationForSignalR(hubPath);
 builder.Services.AddAuthorizationBuilder();
 
 builder.Services.AddIdentityCore<AppUser>()
@@ -90,12 +83,11 @@ builder.Services.AddCors(policyBuilder =>
             .AllowAnyMethod()));
 
 // inyectar servicios desde un archivo externo a Program.cs
-builder.Services.OrdersSystemServices(builder.Configuration);
-builder.Services.AddQrDependencyInjection(builder.Configuration);
-builder.Services.PaymentsSystemServices(builder.Configuration);
-builder.Services.MenuSystemServices(builder.Configuration);
+builder.Services.AddDomainServices(builder.Configuration);
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -117,6 +109,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// app.CreateSchemas();
+// create all schemas
+//app.CreateSchemas();
+app.MapHub<OrderPosHub>(hubPath);
 
 app.Run();

@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using Azure;
-using Microsoft.AspNetCore.Mvc;
-using S14.Base.Infraestructure.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using S14.MenuSystem.Common;
 using S14.MenuSystem.Common.Dtos;
 using S14.MenuSystem.Domain;

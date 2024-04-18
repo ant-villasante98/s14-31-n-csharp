@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using S14.Base.Infraestructure.Data;
+using S14.Base.Infrastructure.Data;
 
 namespace S14.Base.Controllers.Temp
 {

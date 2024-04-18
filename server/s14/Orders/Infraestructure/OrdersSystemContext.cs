@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using S14.Base.Infraestructure.Data;
+using S14.Base.Infrastructure.Data;
 using S14.Orders.Domain;
 using S14.UserManagment.Infraestructure;
 

@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using S14.Base.Infraestructure.Data;
+﻿using Microsoft.EntityFrameworkCore;
 using S14.MenuSystem.Domain;
 using S14.MenuSystem.Infraestructure.Seeds;
 using S14.UserManagment.Infraestructure;

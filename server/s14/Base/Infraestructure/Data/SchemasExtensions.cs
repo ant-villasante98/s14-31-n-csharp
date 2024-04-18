@@ -4,7 +4,7 @@ using S14.Orders.Infrastructure;
 using S14.Payments.Infraestructure;
 using S14.QR.Infrastructure.EntityFramework.Persistance;
 
-namespace S14.Base.Infraestructure.Data
+namespace S14.Base.Infrastructure.Data
 {
     public static class SchemasExtensions
     {
