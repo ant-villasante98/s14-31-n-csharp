@@ -24,10 +24,9 @@ export class SearchModalComponent implements OnInit {
   formSearch: FormGroup = new FormGroup({})
 
   // focusInput = computed(() => {
-  //   let inputNative = this.inputSearch.nativeElement as HTMLInputElement
-  //   console.log(inputNative)
-  //   this.showModal()
-  //   inputNative.select()
+  // let inputNative = this.inputSearch.nativeElement as HTMLInputElement
+  // console.log(inputNative)
+  // this.showModal()
   // })
 
   ngOnInit(): void {

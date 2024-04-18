@@ -1,4 +1,4 @@
-import { Component, Input, WritableSignal } from '@angular/core';
+import { Component, Input, WritableSignal, computed } from '@angular/core';
 
 @Component({
   selector: 'app-main-modal',
@@ -24,4 +24,14 @@ export class MainModalComponent {
       this.showModal.set(false);
     }
   }
+
+  activateSroll = computed(() => {
+    console.log("Cambios en el modal");
+    this.showModal()
+    if (this.showModal()) {
+      document.body.style.overflow = 'hidden'
+      return
+    }
+    document.body.style.overflow = 'auto'
+  })
 }

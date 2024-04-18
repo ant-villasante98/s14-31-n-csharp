@@ -1,40 +1,26 @@
-<!-- Main modal -->
-<!-- <div #Modal daria-hidden="true"
-    class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-screen md:inset-0 h-[100svh] ">
-    <div class="relative p-4 w-full max-w-2xl max-h-full"> -->
-<!-- @if (showModal()){
-<div id="default-modal" tabindex="-1" aria-hidden="true" (click)="modalEvent($event)"
-    class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-[wh] md:inset-0 h-[100svh] max-h-full"> 
-</div>
-}
--->
-
 <app-main-modal [showModal]="showModal">
-    <div class="relative w-[calc(100%_-_4rem)] max-w-[800px] max-h-full m-auto mt-10 ">
-        <div class="relative rounded-2xl shadow dark:bg-gray-700">
-            <form [formGroup]="formSearch" class="mx-auto flex flex-row gap-2" (submit)="searchFood()">
+    <div class="relative w-full max-w-full max-h-full m-0 bg-white">
+        <div class="relative w-full bg-[--warning] pt-4 pb-2 px-4">
+            <form [formGroup]="formSearch" class="mx-auto flex flex-row gap-5 max-w-[700px]" (submit)="searchFood()">
+                <button type="button" class="w-10 h-10 pb-4 justify-center  text-lg rounded-2xl text-black"
+                    (click)="showModal.set(false)" aria-controls="navbar-search" aria-expanded="false">
+                    <img class="h-full" src="assets/icon-back.svg" alt="search">
+                </button>
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
                 <div class="relative flex-1">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                        </svg>
-                    </div>
-                    <input #inputSearch type="search" id="default-search" formControlName="query"
-                        class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Search Mockups, Logos..." required />
-                </div>
-                <div class="flex justify-center items-center">
 
-                    <button type="submit" class=" inline-flex items-center w-max h-10 justify-center text-lg text-white rounded-2xl px-4 border bg-[--info] shadow-lg drop-shadow-md hover:text-black hover:bg-white
-                            border-[--info]" aria-controls="navbar-search" aria-expanded="false">
-                        <samp class="">Buscar</samp>
+                    <input #inputSearch type="text" formControlName="query"
+                        class="block w-full p-2 ps-2 text-sm text-gray-900 border border-gray-300 rounded-md bg-gray-50 h-full"
+                        placeholder="Aplaca tu antojo" />
+                    <button type="submit"
+                        class="absolute top-0 right-0 items-center h-10 w-10 justify-center text-lg rounded-2xl  pr-4 text-black md:py-2 "
+                        aria-controls="navbar-search" aria-expanded="false">
+                        <img src="assets/icon-search.svg" alt="search">
                     </button>
-
                 </div>
+
             </form>
+            <!-- {{focusInput()}} -->
             <!--  mostar solo cuando el backend devuelva un array no vacio -->
             <!-- @if (query.value.trim()) {
             <div class="absolute h-72 top-[calc(100%_+_8px)] rounded-lg border border-gray-300 bg-gray-50 w-full p-4">
