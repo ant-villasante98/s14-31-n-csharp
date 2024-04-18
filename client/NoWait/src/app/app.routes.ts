@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { TestComponent } from './pages/test/test.component';
 import { HomeComponent } from './pages/home/home.component';
 import { authRoutes } from './pages/auth/auth.routes';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -16,14 +15,14 @@ export const routes: Routes = [
         children: authRoutes
     },
     {
-        path: 'seach',
+        path: 'search',
         component: SearchComponent
     }
     ,
     {
         // Componente de prueba
         path: 'test-component',
-        component: TestComponent
+        loadComponent: () => import('./pages/test/test.component').then(c => c.TestComponent),
     },
     {
         path: '',

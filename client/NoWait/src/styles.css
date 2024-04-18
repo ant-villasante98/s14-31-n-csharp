@@ -8,7 +8,14 @@
 
 :root {
     --min-main-container: calc(100svh - 88px);
-    --warning: #FF1D25
+
+    --space-t-navbar: 8px;
+    --h-navbar: 56px;
+
+    --m-t-content: calc(var(--space-t-navbar) + var(--h-navbar));
+    --primary: #E2C30A;
+    --warning: #FF1D25;
+    --info: #45BAAC;
 }
 
 
