@@ -9,12 +9,13 @@
 :root {
     --min-main-container: calc(100svh - 88px);
 
+    --space-t-navbar: 8px;
+    --h-navbar: 56px;
 
+    --m-t-content: calc(var(--space-t-navbar) + var(--h-navbar));
+    --primary: #E2C30A;
     --warning: #FF1D25;
-    /*  */
-    --color-primary: #FF0000;
-    --color-secundary: #E2C30A;
-    --color-info: #45BAAC;
+    --info: #45BAAC;
 }
 
 

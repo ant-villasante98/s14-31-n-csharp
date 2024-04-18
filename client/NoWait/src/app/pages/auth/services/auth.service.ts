@@ -26,6 +26,10 @@ export class AuthService {
       })
     )
   }
+  
+  register(userlogin: UserLogin): Observable<any> {
+    return this.httpClient.post<any>(`${this.API_URL}/register`, userlogin);
+  }
 
   refresh(accessToken: string, refreshToken: string): Observable<UserAuth> {
     return of();

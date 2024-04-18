@@ -1,0 +1,9 @@
+@if (showModal()){
+<div class="fixed top-0 right-0 h-full w-full z-50 opacity-50 bg-gray-700"></div>
+<div id="default-modal" tabindex="-1" aria-hidden="true" (click)="modalEvent($event)"
+    class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-full max-h-full">
+    <ng-content></ng-content>
+
+</div>
+}
+{{activateSroll()}}
