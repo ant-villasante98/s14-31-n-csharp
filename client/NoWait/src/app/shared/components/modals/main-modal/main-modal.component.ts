@@ -26,7 +26,7 @@ export class MainModalComponent {
   }
 
   activateSroll = computed(() => {
-    console.log("Cambios en el modal");
+    // console.log("Cambios en el modal");
     this.showModal()
     if (this.showModal()) {
       document.body.style.overflow = 'hidden'
