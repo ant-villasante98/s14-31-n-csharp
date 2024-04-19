@@ -1,21 +1,16 @@
+import { Product } from "./malls";
 
 export interface ResposeSearchFood {
-    address: string;
-    bannerUrl: string;
-    description: string;
-    imageUrl: string;
-    mallId: number;
-    menuFilteredResults: MenuFilteredResult[];
-    name: string;
-    shopId: number;
+    address:             string;
+    bannerUrl:           string;
+    categories:          string[];
+    description:         string;
+    imageUrl:            string;
+    mallId:              number;
+    menuFilteredResults: Product[];
+    name:                string;
+    shopId:              number;
 }
 
-export interface MenuFilteredResult {
-    category: string;
-    description: string;
-    id: number;
-    imageUrl: string;
-    isAvailable: boolean;
-    name: string;
-    price: number;
-}
+
+   

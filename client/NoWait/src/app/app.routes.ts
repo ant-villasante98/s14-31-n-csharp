@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { authRoutes } from './pages/auth/auth.routes';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SearchComponent } from './pages/search/search.component';
+import { ShopComponent } from './pages/locals/shop.component';
 
 export const routes: Routes = [
     {
@@ -17,8 +18,11 @@ export const routes: Routes = [
     {
         path: 'search',
         component: SearchComponent
-    }
-    ,
+    },
+    {
+        path: 'shop',
+        component: ShopComponent
+    },
     {
         // Componente de prueba
         path: 'test-component',
