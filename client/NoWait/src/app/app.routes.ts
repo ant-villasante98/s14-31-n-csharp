@@ -22,7 +22,7 @@ export const routes: Routes = [
     },
     {
         path: 'shop',
-        component: ShopComponent
+        loadComponent: () => import('./pages/locals/shop.component').then(c => c.ShopComponent)
     },
     {
         // Componente de prueba
@@ -36,11 +36,11 @@ export const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: "/home",
+        redirectTo: '/home',
         pathMatch: 'full'
     },
     {
         path: '**',
-        component: NotFoundComponent
+        loadComponent: () => import('./pages/not-found/not-found.component').then(c => c.NotFoundComponent)
     }
 ];
