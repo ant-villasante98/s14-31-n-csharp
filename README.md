@@ -1,8 +1,9 @@
 # NO WAIT
-_Logo de app_
+(_Logo de app_)
 
-## Maeketplace
 No Wait es una aplicación creada como parte del reto de No Country. La aplicación busca eliminar la necesidad de hacer filas físicas al ordenar comida en locales dentro de plazas comerciales; funciona para explorar y ordenar platillos de una amplia variedad de locales comerciales dentro de una plaza comercial.
+
+#### Rubro: Marketplace
 
 ## 🔗 Links de Deploy:
 - Front: https://no-wait.vercel.app/
@@ -38,26 +39,23 @@ No Wait es una aplicación creada como parte del reto de No Country. La aplicaci
    
   
 - ### **BackEnd:**
-  Asp.Net, Postgres , Docker, EF,  SignalR (notificaciones)
+  **Asp.Net**, **EF**, Postgres , Docker,   SignalR (notificaciones)
   
-  ![aspnet](https://img.shields.io/badge/aspnet-5-blue.svg)
   ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
   ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
   ![Signal](https://img.shields.io/badge/Signal-%23039BE5.svg?style=for-the-badge&logo=Signal&logoColor=white)
-  **EF**
 
 - ### **FrontEnd:** 
-  Angular v17 , Tailwind , Flowbite
+   **Flowbite**, Angular v17 , Tailwind
   
   ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
   ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-  **Flowbite**
+ 
 
 - ### **Testing:**
   ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
   ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
   [![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/drive/folders/1wJ6FRMN_P2ZlkfiSlwlv5NPsTMR6MiA_?usp=drive_link)
-
 
 
 - ### **Gestión de tareas**
@@ -73,39 +71,38 @@ No Wait es una aplicación creada como parte del reto de No Country. La aplicaci
 ## 👥 Equipo
 
 - ### Team Leader
-  | **Verónica Molinari** |
-  | :-------------------: |
-  | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/) 
+  | **Verónica Molinari** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/) |
+  | :-------------------: | :-------------------: |
 
 - ### Project Manager / Tester Manual
   
-  | **Fernanda Ramírez** |
-  | :-------------------: | 
-  | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](http://www.linkedin.com/in/fernanda-rampad)|
+  | **Fernanda Ramírez** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](http://www.linkedin.com/in/fernanda-rampad) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rampad97)|
+  | :-------------------: | :-------------------: |
+  
 
 - ### UX/UI:   
 
-  | **Asael Baudino** |
-  | :-------------------: | 
-  | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/asael-baudino-9a096a234/)|
+  | **Asael Baudino** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/asael-baudino-9a096a234) [![Behance](https://img.shields.io/badge/behance-1769FF?style=for-the-badge&logo=behance&logoColor=white)](https://www.behance.net/asaelbaudino)|
+  | :-------------------: | :-------------------: |
+
 
 - ### FrontEnd:
 
-  | **Angel Rangel** | **Prince Moreno** |
-  | :--------: | :-------: | 
-  | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/angel-rangel-12604629a) |  _Falta link_ |
+  | **Angel Rangel** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/angel-rangel-12604629a) |
+  | :--------: | :-------: |
+  | **Prince Moreno** |  |
 
 - ### BackEnd:
   
-  | **Agustín Volpe** | **Daniel Torres** |
+  | **Agustín Volpe** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/agustin-volpe/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AgusVolpe)|
   | :--------: | :-------: | 
-  | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/agustin-volpe/) |  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/daniel-torres-arango/) |  
+  | **Daniel Torres** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/daniel-torres-arango/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/DnTo)|
 
 - ### Full Stack:
 
-  | **Nahuel Arrascaeta** | **Antonio Villasante** |
+  | **Nahuel Arrascaeta** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://linkedin.com/in/nahuel-arrascaeta) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/NahuelA)|
   | :--------: | :-------: | 
-  | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://linkedin.com/in/nahuel-arrascaeta) |  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/hel%C3%AD-antonio-villasante-hilares-96465b263/) |  
+  | **Antonio Villasante** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/hel%C3%AD-antonio-villasante-hilares-96465b263/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ant-villasante98)|  
 
 ## ** Instalación / imágenes o agregar otra cosa ....
 
