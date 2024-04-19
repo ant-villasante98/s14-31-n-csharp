@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 // import { initFlowbite } from 'flowbite';
@@ -14,9 +14,12 @@ import { FooterComponent } from './shared/components/sctruct/footer/footer.compo
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'NoWait';
   ngOnInit(): void {
     // initFlowbite();
+  }
+
+  ngAfterViewInit(): void {
   }
 }

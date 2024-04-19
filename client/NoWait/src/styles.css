@@ -34,6 +34,24 @@ body {
     height: var(--min-main-container);
 }
 
+
+.init-splash {
+    position: fixed;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 1000;
+    opacity: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .finish-splash {
+    transition: all 3s;
+    opacity: 0;
+} */
+
 @media (min-width: 768px) {
 
     :root {
