@@ -10,7 +10,7 @@ import { CardShopComponent } from '../search/components/card-shop/card-shop.comp
 import { SearchModalComponent } from '../../shared/components/modals/search-modal/search-modal.component';
 import { MainModalComponent } from '../../shared/components/modals/main-modal/main-modal.component';
 import { ShopppingCartComponent } from '../../shared/components/modals/shoppping-cart/shoppping-cart.component';
-import { ShoppingCartManagerService } from '../../shared/services/shopping-cart-manager.service';
+import { ItemCart, ShoppingCartManagerService } from '../../shared/services/shopping-cart-manager.service';
 
 @Component({
   selector: 'app-test',
@@ -26,6 +26,7 @@ export class TestComponent implements OnInit {
   showSearchModal = signal<boolean>(false)
 
   showCart = signal<boolean>(false)
+
 
 
   tooltipState = signal(false);
@@ -44,6 +45,9 @@ export class TestComponent implements OnInit {
 
   submitState = signal<boolean>(true)
 
+  cart = this._cartManager.cartContent
+
+  itemList = items;
 
 
   decodeHtml(html: string): string {
@@ -59,21 +63,45 @@ export class TestComponent implements OnInit {
   }
 
 
-  testSearchFood(q: string) {
-    this.router.navigate(['/search'], { queryParams: { q } })
+  // testSearchFood(q: string) {
+  //   this.router.navigate(['/search'], { queryParams: { q } })
+  // }
+
+  addItem(item: ItemCart) {
+    this._cartManager.updateItem(item);
+
   }
 
-  addItem() {
-    this._cartManager.addItem({
-      id: 1,
-      amount: 3,
-      name: 'plato',
-      price: 340.5
-    });
+  decreaseItem(index: number) {
+    this._cartManager.decreaseItem(index);
   }
-
-  removeItem() {
-    this._cartManager.removeItem(1);
+  increaseItem(index: number) {
+    this._cartManager.increaseItem(index);
   }
 
 }
+
+export const items: ItemCart[] = [
+  {
+    id: 1,
+    amount: 3,
+    imgUrl: "",
+    name: 'burger',
+    price: 3345.4
+  },
+  {
+    id: 2,
+    amount: 5,
+    imgUrl: '',
+    name: ' tallarin',
+    price: 543.5
+  },
+  {
+    id: 3,
+    amount: 8,
+    imgUrl: '',
+    name: 'pizza',
+    price: 6245.3
+  }
+]
+

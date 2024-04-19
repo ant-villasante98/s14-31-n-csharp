@@ -41,9 +41,28 @@ export class ShoppingCartManagerService {
 
 
   // manejo del signal
-  addItem(item: ItemCart) {
+
+  GetItem(itemId: number): ItemCart | null {
+    let index = this.cartContent().findIndex(v => v.id == itemId);
+    if (index != -1) {
+      return this.cartContent()[index];
+    }
+    return null
+  }
+
+  updateItem(item: ItemCart) {
+    let cloneItem = { ...item }
+    if (cloneItem.amount <= 0) {
+      this.removeItem(1);
+      return
+    }
     this.cartContent.update((value) => {
-      value.push(item);
+      let index = value.findIndex(v => v.id == cloneItem.id)
+      if (index != -1) {
+        value[index].amount = cloneItem.amount
+        return value;
+      }
+      value.push(cloneItem);
       return value;
     });
     this.updateStorage(this.cartContent())
@@ -65,6 +84,25 @@ export class ShoppingCartManagerService {
     this.updateStorage(this.cartContent())
   }
 
+  increaseItem(cartIndex: number) {
+    this.cartContent.update(value => {
+      ++value[cartIndex].amount
+      return value
+    })
+    this.updateStorage(this.cartContent())
+  }
+
+  decreaseItem(cartIndex: number) {
+    this.cartContent.update(value => {
+      --value[cartIndex].amount
+      if (value[cartIndex].amount <= 0) {
+        value.splice(cartIndex, 1);
+      }
+      return value
+    })
+    this.updateStorage(this.cartContent())
+  }
+
 
   // Validacion de Items de carrito
   validateItems(value: any): ItemCart[] {
@@ -74,7 +112,7 @@ export class ShoppingCartManagerService {
     let itemArray = value as ItemCart[]
     for (let e of value) {
 
-      if (e == null || e.id == undefined || e.name == undefined || e.price == undefined || e.amount == undefined) {
+      if (e == null || e.id == undefined || e.name == undefined || e.price == undefined || e.amount == undefined || e.imgUrl == undefined) {
         return []
       }
     };
@@ -86,5 +124,6 @@ export interface ItemCart {
   id: number;
   name: string;
   price: number;
-  amount: number
+  amount: number;
+  imgUrl: string;
 }
