@@ -29,15 +29,26 @@
     </div>
 
     <!-- carrito -->
-    <div class="flex md:order-2 md:ml-10">
+    <div class="fixed top-[14px] right-9 md:top-0 md:left-0 md:relative flex md:order-2 md:ml-10">
       <button type="button"
-        class="inline-flex items-center p-2 w-10 h-10 md:h-8 justify-center text-sm text-gray-500 rounded-lg "
+        class="relative inline-flex items-center p-2 w-10 h-10 md:h-8 justify-center text-sm text-gray-500 rounded-lg "
         aria-controls="navbar-search" aria-expanded="false">
         <svg class="min-w-10 min-h-10 md:min-w-8 text-[#ff0000be] md:text-gray-800 " aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
         </svg>
+
+
+        <!-- indicador de cantidad de items en el carrito -->
+        @if( itemsCount().length > 0 ){
+        <div
+          class="absolute flex items-center justify-center w-[24px] h-[24px] font-bold text-white bg-[--info] border border-[--info] rounded-full -top-2 -end-2 md:pt-2">
+          <span class="block text-center text-[16px] w-auto h-min p-0 border-0 m-0">
+            {{itemsCount().length}}
+          </span>
+        </div>
+        }
       </button>
     </div>
     <!-- usuario -->

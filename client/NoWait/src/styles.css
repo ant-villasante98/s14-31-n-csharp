@@ -7,7 +7,9 @@
 @tailwind utilities;
 
 :root {
-    --min-main-container: calc(100svh - 88px);
+    --space-h-footer: 76px;
+
+    --min-main-container: calc(100svh - var(--space-h-footer));
 
     --space-t-navbar: 8px;
     --h-navbar: 56px;
@@ -35,6 +37,6 @@ body {
 @media (min-width: 768px) {
 
     :root {
-        --min-main-container: calc(100vh - 88px);
+        --min-main-container: calc(100vh - var(--space-h-footer));
     }
 }
