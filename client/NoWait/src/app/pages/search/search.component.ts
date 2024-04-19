@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit {
   }
 
   observerUrl() {
-    console.log('observando')
+    // console.log('observando')
     this.route.queryParamMap
       .pipe(
         switchMap((params: ParamMap) => {
