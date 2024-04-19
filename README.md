@@ -1,7 +1,7 @@
 # NO WAIT
 (_Logo de app_)
 
-No Wait es una aplicación creada como parte del reto de No Country. La aplicación busca eliminar la necesidad de hacer filas físicas al ordenar comida en locales dentro de plazas comerciales; funciona para explorar y ordenar platillos de una amplia variedad de locales comerciales dentro de una plaza comercial.
+No Wait es una aplicación creada como parte del reto de No Country. La aplicación funciona para explorar y ordenar platillos de una amplia variedad de locales comerciales dentro de una plaza comercial, buscando eliminar la necesidad de hacer filas físicas.
 
 #### Rubro: Marketplace
 
