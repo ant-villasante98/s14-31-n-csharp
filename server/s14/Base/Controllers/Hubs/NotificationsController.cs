@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.CodeAnalysis.Elfie.Model;
 using Microsoft.EntityFrameworkCore;
 using S14.Orders.Domain.Enums;
 
@@ -62,10 +64,14 @@ namespace S14.Base.Controllers.Hubs
         /// </remarks>
         /// <param name="orderId">El numero de orden</param>
         /// <param name="orderStatus">el estado</param>
+        [Authorize]
         [HttpPost("change-state")]
         public async Task<IActionResult> ChangeState(string orderId, OrderStatus orderStatus)
         {
-            var userConnection = (await _context.Connections.FirstOrDefaultAsync()) ?? null;
+            var userName = User.Identity.Name;
+            var userConnection = (await _context.Connections.FirstOrDefaultAsync(x => x.UserName.Equals(userName))) 
+                ?? null;
+
             if (userConnection is null) { return NotFound(); }
             await _hub.Clients
                 .Client(userConnection.ConnectionId)

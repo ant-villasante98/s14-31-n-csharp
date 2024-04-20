@@ -25,7 +25,7 @@ public class NotificationsHub(IOrdersService _orderService, SignalRConnectionsCo
     public override async Task OnConnectedAsync()
     {
         var user = GetCurrenUser() ?? "guest";
-        await Clients.All.SendAsync("Welcome", $"{user}");
+        await Clients.Client(Context.ConnectionId).SendAsync("Welcome", $"{user}");
 
         var feature = Context.Features.Get<IHttpConnectionFeature>();
 
@@ -47,6 +47,8 @@ public class NotificationsHub(IOrdersService _orderService, SignalRConnectionsCo
             }
             else
             {
+                conn.IsActive = true;
+                conn.ConnectionId = Context.ConnectionId;
                 conn.LastIp = feature!.RemoteIpAddress!.ToString() ?? string.Empty;
                 _context.Entry(conn).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             }
@@ -63,7 +65,7 @@ public class NotificationsHub(IOrdersService _orderService, SignalRConnectionsCo
 
         var conn = _context.Connections.FirstOrDefault(x => x.ConnectionId == connId);
 
-        // El usuario es invitado
+        // El usuario no es invitado
         if (conn is not null)
         {
             conn.IsActive = false;
