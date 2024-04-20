@@ -15,6 +15,7 @@ public class PosController : ControllerBase
         _orderPosService = orderPosService;
     }
 
+    [Obsolete("Not related")]
     [HttpPost("change-order-state")]
     public async Task<IActionResult> ChangeStateToOrder(string qrValue, OrderStatus orderStatus)
     {

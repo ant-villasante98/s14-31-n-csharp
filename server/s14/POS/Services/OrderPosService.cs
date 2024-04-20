@@ -9,14 +9,14 @@ namespace S14.POS.Services;
 
 public class OrderPosService : IOrderPosService
 {
-    private readonly IHubContext<OrderPosHub> _hubOrderPosContext;
+    private readonly IHubContext<NotificationsHub> _hubOrderPosContext;
     private readonly IOrdersService _ordersService;
     private readonly IQrService _qrService;
 
     public OrderPosService(
         IOrdersService ordersService,
         IQrService qrService,
-        IHubContext<OrderPosHub> hubOrderPosContext)
+        IHubContext<NotificationsHub> hubOrderPosContext)
     {
         _ordersService = ordersService;
         _hubOrderPosContext = hubOrderPosContext;
@@ -36,8 +36,8 @@ public class OrderPosService : IOrderPosService
         }
         catch (OrderNotFoundException ex)
         {
-            
-            await _hubOrderPosContext.Clients.All.SendAsync("OrderStatusUpdated", order);
+
+            await _hubOrderPosContext.Clients.All.SendAsync("OrderStatusUpdated", $"la orden {order} fue {status}");
         }
     }
 
