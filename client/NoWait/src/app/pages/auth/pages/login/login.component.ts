@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { UserLogin } from '../../../../models/user-login';
 import { AuthManagerService } from '../../../../shared/services/auth-manager.service';
 import { JsonPipe } from '@angular/common';
+import { MsnErrorComponent } from '../../../../shared/components/msn-error/msn-error.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe],
+  imports: [ReactiveFormsModule, JsonPipe, MsnErrorComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

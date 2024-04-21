@@ -4,10 +4,12 @@ import { EMPTY, catchError, concatMap, throwError } from 'rxjs';
 import { AuthService } from '../../pages/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { EnvService } from '../services/env.service';
+import { AuthManagerService } from '../services/auth-manager.service';
 
 export const errorApiInterceptor: HttpInterceptorFn = (req, next) => {
   const API_URL = inject(EnvService).API_URL;
   const authService = inject(AuthService);
+  const _authManagers = inject(AuthManagerService);
   let router = inject(Router);
 
   console.log(`--Interceptor-Error: peticion ${req.url}`)
@@ -46,7 +48,7 @@ export const errorApiInterceptor: HttpInterceptorFn = (req, next) => {
         // )
 
         // TODO: solucion temporal
-
+        _authManagers.rmCreadentials()
         router.navigateByUrl('/auth')
       }
       return throwError(() => error);

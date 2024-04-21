@@ -17,19 +17,18 @@ export class AuthManagerService {
   //obtencion de credenciales
   userCredentials: string | null = "";
 
-  
-  constructor() {     
+
+  constructor() {
   }
-  
-  getCredentials():UserAuth | null {
+
+  getCredentials(): UserAuth | null {
     let userAuthString = localStorage.getItem(this.nameStorage);
     if (!userAuthString) {
       return null;
     }
-  
+
     let userAuth: UserAuth = JSON.parse(userAuthString);
-    if (this.isNotValidateUserAuth(userAuth))
-    {
+    if (this.isNotValidateUserAuth(userAuth)) {
       return null;
     }
 
@@ -40,11 +39,11 @@ export class AuthManagerService {
   setCredentials(credenciales: UserAuth) {
     localStorage.setItem(this.nameStorage, JSON.stringify(credenciales))
   }
-  
+
   // obtener el refresh token
 
   // agreagar credencilas al header
-  addAccessToken(req: HttpRequest<unknown>):HttpRequest<unknown> {
+  addAccessToken(req: HttpRequest<unknown>): HttpRequest<unknown> {
     let headers = req.headers;
     let userAuth: UserAuth | null = this.getCredentials();
     if (userAuth) {
@@ -52,6 +51,10 @@ export class AuthManagerService {
     }
 
     return req.clone({ headers });
+  }
+
+  rmCreadentials() {
+    localStorage.removeItem(this.nameStorage);
   }
 
   // validar UserAuth
