@@ -12,4 +12,13 @@ import { UpperCasePipe } from '@angular/common';
 export class CardShopComponent {
 
   @Input({ alias: 'item-resul', required: true }) item!: ResposeSearchFood;
+
+  errorHandler(event: Event) {
+    let img = event.target
+    if (img instanceof HTMLImageElement) {
+      console.log(img)
+      img.src = 'assets/error-img.jpg'
+    }
+
+  }
 }
