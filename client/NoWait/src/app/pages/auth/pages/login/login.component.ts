@@ -49,8 +49,10 @@ export class LoginComponent implements OnInit {
   }
 
   submitLogin(): void {
-
+    this.formLogin.disable()
     this.formLogin.markAllAsTouched()
+
+    this.formLogin.enable()
     // TODO: mejorar logica
 
     if (this.formLogin.invalid) {
