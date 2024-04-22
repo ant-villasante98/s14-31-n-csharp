@@ -1,5 +1,4 @@
 import { Injectable, Signal, WritableSignal, computed, signal } from '@angular/core';
-import { isEmpty } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +52,7 @@ export class ShoppingCartManagerService {
   updateItem(item: ItemCart) {
     let cloneItem = { ...item }
     if (cloneItem.amount <= 0) {
-      this.removeItem(1);
+      this.removeItem(item.id);
       return
     }
     this.cartContent.update((value) => {

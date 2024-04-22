@@ -1,15 +1,13 @@
 import { Component, Input, OnInit, WritableSignal, computed, inject, signal } from '@angular/core';
 import { MainModalComponent } from '../main-modal/main-modal.component';
 import { UpperCasePipe } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MallsService } from '../../../services/malls.service';
 import { Product } from '../../../../models/malls';
 import { ShoppingCartManagerService } from '../../../services/shopping-cart-manager.service';
 
 @Component({
   selector: 'app-food-modal',
   standalone: true,
-  imports: [MainModalComponent, UpperCasePipe, ReactiveFormsModule],
+  imports: [MainModalComponent, UpperCasePipe],
   templateUrl: './food-modal.component.html',
   styleUrl: './food-modal.component.css'
 })
@@ -21,6 +19,7 @@ export class FoodModalComponent implements OnInit {
 
   @Input() set itemMenu(value: Product | null) {
     if (value) {
+      console.log('nuevo elemento', value.name)
       this.element = value
       this.undPrice = this.element.price;
     }
@@ -76,6 +75,7 @@ export class FoodModalComponent implements OnInit {
   }
   addItem() {
     if (this.element) {
+      console.log(this.element)
 
       let { id, shopId, imageUrl, name, price, description } = this.element;
       this._cartManageService.updateItem({

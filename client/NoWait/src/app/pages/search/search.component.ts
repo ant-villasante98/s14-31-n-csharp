@@ -5,16 +5,20 @@ import { SearchFoodService } from './services/search-food.service';
 import { UpperCasePipe } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { of, switchMap } from 'rxjs';
+import { Product } from '../../models/malls';
+import { FoodModalComponent } from '../../shared/components/modals/food-modal/food-modal.component';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CardShopComponent, UpperCasePipe],
+  imports: [CardShopComponent, UpperCasePipe, FoodModalComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
 export class SearchComponent implements OnInit {
+  foodSelected: Product | null = null
 
+  showFoodModal = signal<boolean>(false);
   finishSearch = signal<boolean>(false)
 
   private route = inject(ActivatedRoute)
@@ -61,6 +65,13 @@ export class SearchComponent implements OnInit {
     }
     );
   }
+
+  openInFoodModal(food: Product) {
+    this.foodSelected = food;
+    this.showFoodModal.set(true);
+
+  }
+
 
 
 }
