@@ -18,7 +18,7 @@ import { MsnErrorComponent } from '../../shared/components/msn-error/msn-error.c
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [NgClass, ReactiveFormsModule, JsonPipe, SearchModalComponent, CardShopComponent, ShopppingCartComponent, MainModalComponent, MsnErrorComponent],
+  imports: [NgClass, ReactiveFormsModule, JsonPipe, SearchModalComponent, CardShopComponent, ShopppingCartComponent, MainModalComponent, MsnErrorComponent, FoodModalComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.css'
 })

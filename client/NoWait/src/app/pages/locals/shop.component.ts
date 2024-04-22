@@ -1,7 +1,8 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { MallsService } from '../../shared/services/malls.service';
-import { CardShopComponent } from './card-shop/card-shop.component';
+// import { CardShopComponent } from './card-shop/card-shop.component';
 import { ResposeSearchFood } from '../../models/search-result';
+import { CardShopComponent } from '../search/components/card-shop/card-shop.component';
 
 @Component({
   selector: 'app-shop',

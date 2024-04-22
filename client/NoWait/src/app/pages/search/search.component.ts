@@ -17,6 +17,7 @@ import { FoodModalComponent } from '../../shared/components/modals/food-modal/fo
 })
 export class SearchComponent implements OnInit {
   foodSelected: Product | null = null
+  imgShopSelected: string | null = null;
 
   showFoodModal = signal<boolean>(false);
   finishSearch = signal<boolean>(false)
@@ -66,12 +67,19 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  openInFoodModal(food: Product) {
+  openInFoodModal(food: Product, imgShop: string) {
     this.foodSelected = food;
+    this.imgShopSelected = imgShop
     this.showFoodModal.set(true);
 
   }
 
 
-
+  errorHandlerFood(event: Event) {
+    let img = event.target
+    if (img instanceof HTMLImageElement) {
+      console.log(img)
+      img.src = 'assets/error-img.jpg'
+    }
+  }
 }

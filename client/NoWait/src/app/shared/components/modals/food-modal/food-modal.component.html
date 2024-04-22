@@ -35,10 +35,10 @@
                 <!-- contenedor de imagen -->
                 <div class="relative size-[128px]">
                     <img class="block w-full h-full rounded-md bg-white drop-shadow-md shadow-md"
-                        src="https://i.pinimg.com/236x/b6/ff/6f/b6ff6f1069bdb3ec62a6e40a7177a397.jpg" alt="">
+                        (error)="errorHandlerFood($event)" [src]="element?.imageUrl" alt="">
                     <div class="absolute size-[48px] -top-8 -left-2">
                         <img class="block bg-white w-full h-full rounded-full drop-shadow-md shadow-md object-cover"
-                            src="https://i.pinimg.com/736x/9e/99/03/9e9903f97c285f9016c5be04076725c7.jpg" alt="">
+                            [src]="imgShop" alt="" (error)="errorHandlerLogo($event)">
                     </div>
                 </div>
                 <!-- Descripcion de contador -->

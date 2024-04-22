@@ -1,7 +1,7 @@
 <div class="pt-[--m-t-content] text-yanone w-full mb-9 bg-transparent">
 
-    <div class="flex font-abc w-[390px] pt-[32px] md:flex-row">
-        <h1 class="text-[16px] ml-8 mr-4">Resultados de búsqueda: </h1>
+    <div class="flex font-medium text-[18px] w-[390px] pt-[32px] md:flex-row">
+        <h1 class="ml-8 mr-4">Resultados de búsqueda: </h1>
         <span>{{qSearch()| uppercase}}</span>
     </div>
 
@@ -18,9 +18,10 @@
                 <!-- Comidas que coinciden con la busqueda -->
                 @for (food of shop.menuFilteredResults; track $index) {
                 <div class="flex flex-none items-center bg-white h-full border-x-2 px-2 py-2 cursor-pointer"
-                    (click)="openInFoodModal(food)">
+                    (click)="openInFoodModal(food, shop.imageUrl)">
                     <div>
-                        <img class="block bg-black size-[96px] rounded-xl" src="" alt="">
+                        <img class="block bg-black size-[96px] rounded-xl" [src]="food.imageUrl" alt=""
+                            (error)="errorHandlerFood($event)">
                     </div>
                     <div class="pl-4 pt-4 w-[150px] h-full overflow-hidden">
                         <div class="text-[1.1rem] font-medium truncate">{{food.name| uppercase}}</div>
@@ -51,4 +52,4 @@
         }
     </div>
 </div>
-<app-food-modal [show-food]="showFoodModal" [itemMenu]="foodSelected"></app-food-modal>
+<app-food-modal [show-food]="showFoodModal" [itemMenu]="foodSelected" [imgShop]="imgShopSelected"></app-food-modal>

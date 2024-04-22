@@ -17,6 +17,8 @@ export class FoodModalComponent implements OnInit {
 
   element: Product | null = null;
 
+  @Input() imgShop: string | null = '';
+
   @Input() set itemMenu(value: Product | null) {
     if (value) {
       console.log('nuevo elemento', value.name)
@@ -35,6 +37,8 @@ export class FoodModalComponent implements OnInit {
   total = computed<number>(() => {
     return this.count() * this.undPrice
   })
+
+
 
 
   // private formBuilder = inject(FormBuilder)
@@ -88,5 +92,22 @@ export class FoodModalComponent implements OnInit {
         description
       })
     }
+  }
+
+  errorHandlerFood(event: Event) {
+    let img = event.target
+    if (img instanceof HTMLImageElement) {
+      console.log(img)
+      img.src = 'assets/error-img.jpg'
+    }
+  }
+
+  errorHandlerLogo(event: Event) {
+    let img = event.target
+    if (img instanceof HTMLImageElement) {
+      console.log(img)
+      img.src = 'assets/Logo-Circulo.png'
+    }
+
   }
 }
