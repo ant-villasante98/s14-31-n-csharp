@@ -1,0 +1,103 @@
+<app-main-modal [showModal]="showModal" [staticModal]="true">
+    <div
+        class="relative flex flex-col bg-[--primary] m-auto mt-[--m-t-content] w-[calc(100%_-_72px)] rounded-2xl px-5 pt-5 pb-5 shadow-md drop-shadow text-yanone md:max-w-[700px]">
+        <!-- Boton de cerrar -->
+        <div class="w-full flex justify-end">
+            <button (click)="closeModal()" type="button"
+                class="mafont-normal text-white border-[3px] border-white m-0 p-[5px] rounded-md">
+                <svg class="h-3 fill-white" version="1.1" viewBox="0 0 47 52" xml:space="preserve"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g>
+                        <path
+                            d="M45.243,41.757L31.455,26l13.788-15.758c2.343-2.344,2.343-6.143,0-8.486c-2.345-2.343-6.144-2.342-8.486,0.001   L23.5,16.909L10.243,1.757C7.9-0.585,4.102-0.586,1.757,1.756c-2.343,2.344-2.343,6.143,0,8.486L15.545,26L1.757,41.757   c-2.343,2.343-2.343,6.142-0.001,8.485c2.344,2.344,6.143,2.344,8.487,0L23.5,35.09l13.257,15.152c2.345,2.344,6.144,2.344,8.487,0   C47.586,47.899,47.586,44.1,45.243,41.757z" />
+                    </g>
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                </svg>
+            </button>
+        </div>
+        <!-- Contenido del modal -->
+        <div class="flex flex-col w-full pt-5">
+            <div class="flex flex-row w-full ">
+                <!-- contenedor de imagen -->
+                <div class="relative size-[128px]">
+                    <img class="block w-full h-full rounded-md bg-white drop-shadow-md shadow-md"
+                        (error)="errorHandlerFood($event)" [src]="element?.imageUrl" alt="">
+                    <div class="absolute size-[48px] -top-8 -left-2">
+                        <img class="block bg-white w-full h-full rounded-full drop-shadow-md shadow-md object-cover"
+                            [src]="imgShop" alt="" (error)="errorHandlerLogo($event)">
+                    </div>
+                </div>
+                <!-- Descripcion de contador -->
+                <div class="pl-2 w-[calc(100%_-_128px)]">
+                    <!-- nombre y descripcion -->
+                    <div class="w-full">
+                        <div class="text-left truncate font-semibold text-[1.1rem]">
+                            {{element?.name| uppercase }}
+                        </div>
+                        <p class="text-left pr-1 font-normal h-[120px] max-h-[120px] text-ellipsis overflow-hidden">
+                            {{element?.description}}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Precion Unitario -->
+            <div class="flex justify-center w-full mt-3">
+                <span class="font-medium text-lg">
+                    ${{undPrice}}
+                </span>
+            </div>
+            <!-- Contador -->
+            <div class="w-full my-4">
+
+                <form class="flex items-center w-max border border-[#8E7D27] m-auto gap-1">
+                    <button type="button" class="p-3 h-11" (click)="subtract()">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 18 2">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h16" />
+                        </svg>
+                    </button>
+                    <input class="h-5 w-8 bg-white border-none px-0 text-center" type="number" readonly
+                        name="amount-item" id="amount-item" [value]="count()">
+                    <button type="button" class="p-3 h-11" (click)="add()">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </button>
+
+                </form>
+
+            </div>
+            <!-- Separador -->
+            <div class="w-full border-b-[3px] border-[#F4DA5D] mt-2"></div>
+
+            <!-- botones de agregar y actualizar -->
+            <div class="flex w-full justify-center my-4">
+                <button (click)="addItem()"
+                    class="block w-[min-content] font-semibold justify-center text-black rounded-2xl py-2 px-10 border-4 bg-[#F4DA5D] border-[#F4DA5D] shadow drop-shadow hover:text-black hover:bg-white text-yanane uppercase leading-none"
+                    type="button">
+                    <span class="block w-[max-content] p-0">Agregar</span>
+                    <span>${{total()}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</app-main-modal>

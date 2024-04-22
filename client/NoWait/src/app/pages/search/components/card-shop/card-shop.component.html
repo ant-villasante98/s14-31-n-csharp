@@ -1,4 +1,4 @@
-<div class="bg-white w-[360px] h-[130px] flex rounded-lg drop-shadow-xl shadow-lg md:w-[380px] px-4">
+<div class="bg-white w-[360px] h-[130px] flex rounded-lg drop-shadow-xl shadow-lg md:w-[380px] px-4 border">
     <div>
         <img class="w-[108px] h-[108px] my-[11px] rounded-full object-cover shadow-md shadow-zinc-300"
             [src]="item.imageUrl" (error)="errorHandler($event)" />
@@ -6,7 +6,7 @@
 
     <div class=" mt-[22px] ml-[24px]  w-[155px] h-[68px] ">
         <div class="flex">
-            <h1 class=" font-medium tracking-tight text-[22px]">{{item.name | uppercase}}</h1>
+            <h1 class=" font-medium tracking-tight text-[22px] leading-none">{{item.name | uppercase}}</h1>
             <span class="text-[14px] mt-[8px] ml-[3px]">{{item.address}}</span>
         </div>
         <p class="text-[12px] leading-4 tracking-widest">{{item.description}}

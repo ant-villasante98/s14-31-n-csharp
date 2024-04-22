@@ -1,5 +1,4 @@
 import { Injectable, Signal, WritableSignal, computed, signal } from '@angular/core';
-import { isEmpty } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +52,7 @@ export class ShoppingCartManagerService {
   updateItem(item: ItemCart) {
     let cloneItem = { ...item }
     if (cloneItem.amount <= 0) {
-      this.removeItem(1);
+      this.removeItem(item.id);
       return
     }
     this.cartContent.update((value) => {
@@ -112,7 +111,7 @@ export class ShoppingCartManagerService {
     let itemArray = value as ItemCart[]
     for (let e of value) {
 
-      if (e == null || e.id == undefined || e.name == undefined || e.price == undefined || e.amount == undefined || e.imgUrl == undefined) {
+      if (e == null || e.id == undefined || e.name == undefined || e.price == undefined || e.amount == undefined || e.imgUrl == undefined || e.shopId == undefined) {
         return []
       }
     };
@@ -122,8 +121,10 @@ export class ShoppingCartManagerService {
 
 export interface ItemCart {
   id: number;
+  shopId: number
   name: string;
   price: number;
   amount: number;
   imgUrl: string;
+  description: string;
 }

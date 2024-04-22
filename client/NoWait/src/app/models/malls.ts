@@ -27,6 +27,7 @@ export interface Shop {
 
 export interface Product{
     id:          number;
+    shopId: number;
     category:    string;
     name:        string;
     description: string;
