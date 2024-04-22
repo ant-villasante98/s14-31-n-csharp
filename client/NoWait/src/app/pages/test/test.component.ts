@@ -13,18 +13,19 @@ import { ShopppingCartComponent } from '../../shared/components/modals/shoppping
 import { ItemCart, ShoppingCartManagerService } from '../../shared/services/shopping-cart-manager.service';
 import { FoodModalComponent } from '../../shared/components/modals/food-modal/food-modal.component';
 import { Product } from '../../models/malls';
+import { MsnErrorComponent } from '../../shared/components/msn-error/msn-error.component';
 
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [NgClass, ReactiveFormsModule, JsonPipe, SearchModalComponent, CardShopComponent, ShopppingCartComponent, MainModalComponent, FoodModalComponent],
+  imports: [NgClass, ReactiveFormsModule, JsonPipe, SearchModalComponent, CardShopComponent, ShopppingCartComponent, MainModalComponent, MsnErrorComponent],
   templateUrl: './test.component.html',
   styleUrl: './test.component.css'
 })
 export class TestComponent implements OnInit {
   ngOnInit(): void {
   }
-
+  showMsnError = signal<boolean>(false)
   showSearchModal = signal<boolean>(false)
 
   showCart = signal<boolean>(false)
