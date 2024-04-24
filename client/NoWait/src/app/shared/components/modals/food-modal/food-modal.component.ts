@@ -35,7 +35,7 @@ export class FoodModalComponent implements OnInit {
   undPrice = 0;
 
   total = computed<number>(() => {
-    return this.count() * this.undPrice
+    return Number((this.count() * this.undPrice).toFixed(2))
   })
 
 

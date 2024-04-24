@@ -13,7 +13,7 @@ export class NotificationService {
 
   private connection!: HubConnection;
 
-  private updateStateSubject = new Subject<Notification>();
+  private updateStateSubject = new Subject<OrderNotification>();
   private testSubject = new Subject<string>();
 
   get updateState() {
@@ -53,11 +53,11 @@ export class NotificationService {
       console.log(message)
     })
 
-    this.connection.on("OrderStatusUpdated", (email, orderId, status) => {
+    this.connection.on("OrderStatusUpdate", (email, orderId, status) => {
       console.log(email)
       console.log(orderId)
       console.log(status)
-      this.updateStateSubject.next({ email, orderId, status } as Notification)
+      this.updateStateSubject.next({ email, orderId, status } as OrderNotification)
     })
 
   }
@@ -68,8 +68,13 @@ export class NotificationService {
   }
 }
 
-export interface Notification {
+export interface OrderNotification {
   email: string;
   orderId: number;
-  status: string
+  status: OrderStateNotification
+}
+
+export interface OrderStateNotification {
+  code: number,
+  caption: string
 }

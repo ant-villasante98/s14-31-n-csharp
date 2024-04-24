@@ -31,17 +31,12 @@
             </button>
         </div>
 
-        <h1 class="text-center text-white text-[24px] font-bold">
-            <!-- PEDIDO ACEPTADO! -->
-            {{notification?.status}}
+        <h1 class="text-center text-white text-[24px] font-bold uppercase">
+            {{messageNotification.title}}
         </h1>
 
-        <h1 class="font-abc text-[16px]  text-black text-center mt-3 font-semibold">
-            {{notification?.email}}
-            <!-- EL LOCAL YA ESTÁ -->
-            <br>
-            <!-- PREPARANDO
-            TU PEDIDO. -->
+        <h1 class="font-abc text-[16px]  text-black text-center mt-3 font-semibold px-8 uppercase">
+            {{messageNotification.description}}
         </h1>
 
     </div>
