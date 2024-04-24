@@ -78,7 +78,6 @@ export class SearchComponent implements OnInit {
   errorHandlerFood(event: Event) {
     let img = event.target
     if (img instanceof HTMLImageElement) {
-      console.log(img)
       img.src = 'assets/error-img.jpg'
     }
   }

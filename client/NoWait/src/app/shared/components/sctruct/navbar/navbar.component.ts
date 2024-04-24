@@ -7,13 +7,13 @@ import { ShoppingCartManagerService } from '../../../services/shopping-cart-mana
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NavbarFooterComponent, SearchModalComponent],
+  imports: [RouterLink, RouterLinkActive, NavbarFooterComponent, SearchModalComponent,],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
 
-  showSearchModal = signal<boolean>(false)
+  showSearchModal = signal<boolean>(false);
 
   private _cartManager = inject(ShoppingCartManagerService);
 

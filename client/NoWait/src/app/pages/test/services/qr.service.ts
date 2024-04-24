@@ -8,7 +8,9 @@ import { Observable, map } from 'rxjs';
 export class QrService {
   private API_URL: string = "http://localhost:5065/api/qr";
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient) {
+    console.log("Hola des de qrservice")
+  }
 
   getSVGElement(orderId: number): Observable<string> {
     const headers = new HttpHeaders();

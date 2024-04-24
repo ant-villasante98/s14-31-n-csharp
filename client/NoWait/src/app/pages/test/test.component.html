@@ -1,55 +1,506 @@
-<div class="w-full h-[100vh] pt-40 ">
-    <div class="flex-1 bg-transparent flex items-center justify-center w-full">
+<div class="h-[70px] pt-8 px-6">
+    <h1 class="uppercase text-[1.3]">Admin</h1>
+</div>
+<div class=" flex flex-nowrap p-5 w-full h-[672px] gap-5 px-4 font-serif">
+    <!-- Columna 1 -->
+    <div class="w-[360px] bg-[#7DD3C780] rounded-2xl px-4 h-full overflow-y-auto border">
+        <!-- Cabecera -->
+        <div class="text-[1.2rem] font-medium py-3 px-2 uppercase text-center">
+            nuevo pedido
+        </div>
 
-        <div
-            class="py-11  bg-[#E2C30A] w-[300px] md:w-[70%] md:h-[auto] rounded-2xl shadow-2xl flex flex-col items-center justify-center gap-4 md:gap-8 md:z-10">
-            <div>
-                <button (click)="openFoodModa(product1)"
-                    class="mt-6 bg-[#F4DA5D] font-bold px-4 py-2 rounded-full shadow-lg shadow-bottom hover:bg-gray-200 transition-colors duration-300">
-                    producto1
-                </button>
-                <button (click)="openFoodModa(product2)"
-                    class="mt-6 bg-[#F4DA5D] font-bold px-4 py-2 rounded-full shadow-lg shadow-bottom hover:bg-gray-200 transition-colors duration-300">
-                    producto2
-                </button>
-            </div>
-            {{ cart()|json }}
+        <!-- Contenido -->
 
-            <div>
-                <app-msn-error [show]="showMsnError"></app-msn-error>
-            </div>
-            <div>
-
-                @for (item of itemList; track $index) {
-                <div>
-                    <p>{{item.name}}: <span>{{item.amount}}</span></p>
-                    <button (click)="addItem( item)"
-                        class="mt-6 bg-[#F4DA5D] font-bold px-4 py-2 rounded-full shadow-lg shadow-bottom hover:bg-gray-200 transition-colors duration-300">
-                        Agregar Item
-                    </button>
+        <!-- Card 1 -->
+        <div class="border border-[#229685] rounded-2xl w-full pt-2 pb-3 px-4 mb-8">
+            <!-- ItemMenu 1-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Precio -->
+                <div class="shrink-0 w-[33%] text-[0.75rem] font-bold text-end pr-2">
+                    $ <span>50045.53</span>.-
                 </div>
-                }
-                @for (item of cart(); track $index) {
-                <div>
-                    <p>{{item.name}}: <span>{{item.amount}}</span></p>
-                    <button (click)="increaseItem($index)"
-                        class="mt-6 bg-[#F4DA5D] font-bold px-4 py-2 rounded-full shadow-lg shadow-bottom hover:bg-gray-200 transition-colors duration-300">
-                        increamentar Item
-                    </button>
-                    <button (click)="decreaseItem($index)"
-                        class="mt-6 bg-[#F4DA5D] font-bold px-4 py-2 rounded-full shadow-lg shadow-bottom hover:bg-gray-200 transition-colors duration-300">
-                        decrementar Item
-                    </button>
+                <!-- Descripcion -->
+                <div class="shrink w-[67%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
                 </div>
-                }
             </div>
+
+            <!-- Item 2 -->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Precio -->
+                <div class="shrink-0 w-[33%] text-[0.75rem] font-bold text-end pr-2">
+                    $ <span>10245.53</span>.-
+                </div>
+                <!-- Descripcion -->
+                <div class="shrink w-[67%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>1</span>
+                        <!-- Nombre -->
+                        Nombre del segunto item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Costos totales -->
+            <p class="uppercase text-[1rem] w-full text-center">Subtotal: <span
+                    class="ml-2">$</span><span>10245.53</span>.-
+            </p>
+            <p class="uppercase text-[1rem] w-full font-bold text-center mb-3">Total: <span
+                    class="ml-2">$</span><span>10245.53</span>.-
+            </p>
+
+
+            <!-- Boton -->
+            <button class="block mx-auto w-max text-black rounded-2xl px-5 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                    border-[#F4DA5D]">Preparar
+            </button>
+
+        </div>
+        <!-- Card 2 -->
+        <div class="border border-[#229685] rounded-2xl w-full pt-2 pb-3 px-4 mb-8">
+            <!-- ItemMenu 1-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Precio -->
+                <div class="shrink-0 w-[33%] text-[0.75rem] font-bold text-end pr-2">
+                    $ <span>50045.53</span>.-
+                </div>
+                <!-- Descripcion -->
+                <div class="shrink w-[67%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Precio -->
+                <div class="shrink-0 w-[33%] text-[0.75rem] font-bold text-end pr-2">
+                    $ <span>10245.53</span>.-
+                </div>
+                <!-- Descripcion -->
+                <div class="shrink w-[67%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>1</span>
+                        <!-- Nombre -->
+                        Nombre del segunto item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Costos totales -->
+            <p class="uppercase text-[1rem] w-full text-center">Subtotal: <span
+                    class="ml-2">$</span><span>10245.53</span>.-
+            </p>
+            <p class="uppercase text-[1rem] w-full font-bold text-center mb-3">Total: <span
+                    class="ml-2">$</span><span>10245.53</span>.-
+            </p>
+
+
+            <!-- Boton -->
+            <button class="block mx-auto text-black rounded-2xl px-5 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                            border-[#F4DA5D]">
+                Preparar
+            </button>
+
+        </div>
+
+        <!-- Card 3 -->
+        <div class="border border-[#229685] rounded-2xl w-full pt-2 pb-3 px-4 mb-8">
+            <!-- ItemMenu 1-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Precio -->
+                <div class="shrink-0 w-[33%] text-[0.75rem] font-bold text-end pr-2">
+                    $ <span>50045.53</span>.-
+                </div>
+                <!-- Descripcion -->
+                <div class="shrink w-[67%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Precio -->
+                <div class="shrink-0 w-[33%] text-[0.75rem] font-bold text-end pr-2">
+                    $ <span>10245.53</span>.-
+                </div>
+                <!-- Descripcion -->
+                <div class="shrink w-[67%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>1</span>
+                        <!-- Nombre -->
+                        Nombre del segunto item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Costos totales -->
+            <p class="uppercase text-[1rem] w-full text-center">Subtotal: <span
+                    class="ml-2">$</span><span>10245.53</span>.-
+            </p>
+            <p class="uppercase text-[1rem] w-full font-bold text-center mb-3">Total: <span
+                    class="ml-2">$</span><span>10245.53</span>.-
+            </p>
+
+            <!-- Boton -->
+            <button class="block mx-auto w-max  text-black rounded-2xl px-5 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                            border-[#F4DA5D]">
+                Preparar
+            </button>
+
         </div>
     </div>
 
-    <app-search-modal [showModal]="showSearchModal"></app-search-modal>
+    <!-- Columna 2 -->
+    <div class="w-[360px] bg-[#F5F5F5] rounded-2xl px-4 h-full overflow-y-auto border">
+        <!-- Cabecera -->
+        <div class="text-[1.2rem] font-medium py-3 px-2 uppercase text-center">
+            En Preparacion
+        </div>
 
-    <app-shoppping-cart [showModal]="showCart">
-    </app-shoppping-cart>
+        <!-- Contenido -->
 
-    <app-food-modal [show-food]="showFood" [itemMenu]="product"></app-food-modal>
+        <!-- Card 1 -->
+        <div class="border border-[#229685] rounded-2xl w-full pt-2 pb-3 px-4 mb-8">
+            <!-- ItemMenu 1-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Descripcion -->
+                <div class="shrink w-[65%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+                <div class="flex justify-center items-center shrink-0 w-[35%]">
+
+                    <!-- Boton -->
+                    <button class="w-max uppercase text-black rounded-2xl px-2 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                    border-[#F4DA5D]">
+                        listo
+                    </button>
+                </div>
+            </div>
+            <!-- ItemMenu 2-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Descripcion -->
+                <div class="shrink w-[65%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+                <div class="flex justify-center items-center shrink-0 w-[35%]">
+
+                    <!-- Boton -->
+                    <button class="w-max uppercase text-black rounded-2xl px-2 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                                border-[#F4DA5D]">
+                        listo
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <!-- Card 2 -->
+        <div class="border border-[#229685] rounded-2xl w-full pt-2 pb-3 px-4 mb-8">
+            <!-- ItemMenu 1-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Descripcion -->
+                <div class="shrink w-[65%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+                <div class="flex justify-center items-center shrink-0 w-[35%]">
+
+                    <!-- Boton -->
+                    <button class="w-max uppercase text-black rounded-2xl px-2 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                            border-[#F4DA5D]">
+                        listo
+                    </button>
+                </div>
+            </div>
+            <!-- ItemMenu 2-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Descripcion -->
+                <div class="shrink w-[65%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+                <div class="flex justify-center items-center shrink-0 w-[35%]">
+
+                    <!-- Boton -->
+                    <button class="w-max uppercase text-black rounded-2xl px-2 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                                        border-[#F4DA5D]">
+                        listo
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="w-[360px] bg-[#F5F5F5] rounded-2xl px-4 h-full overflow-y-auto border">
+        <!-- Cabecera -->
+        <div class="text-[1.2rem] font-medium py-3 px-2 uppercase text-center">
+            Empaquetar
+        </div>
+
+        <!-- Contenido -->
+
+        <!-- Card 1 -->
+        <div class="border border-[#229685] rounded-2xl w-full pt-2 pb-3 px-4 mb-8">
+            <!-- ItemMenu 1-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Descripcion -->
+                <div class="shrink w-[65%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+                <div class="flex justify-center items-center shrink-0 w-[35%]">
+
+                    <!-- Boton -->
+                    <button class="w-max uppercase text-black rounded-2xl px-2 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                        border-[#F4DA5D]">
+                        listo
+                    </button>
+                </div>
+            </div>
+            <!-- ItemMenu 2-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Descripcion -->
+                <div class="shrink w-[65%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+                <div class="flex justify-center items-center shrink-0 w-[35%]">
+
+                    <!-- Boton -->
+                    <button class="w-max uppercase text-black rounded-2xl px-2 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                                    border-[#F4DA5D]">
+                        listo
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <!-- Card 2 -->
+        <div class="border border-[#229685] rounded-2xl w-full pt-2 pb-3 px-4 mb-8">
+            <!-- ItemMenu 1-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Descripcion -->
+                <div class="shrink w-[65%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+                <div class="flex justify-center items-center shrink-0 w-[35%]">
+
+                    <!-- Boton -->
+                    <button class="w-max uppercase text-black rounded-2xl px-2 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                                border-[#F4DA5D]">
+                        listo
+                    </button>
+                </div>
+            </div>
+            <!-- ItemMenu 2-->
+            <div class="flex flex-row border-b-2 border-[#F4DA5D] w-full pb-2 mb-2">
+                <!-- Descripcion -->
+                <div class="shrink w-[65%] ">
+                    <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                        <!-- Cantidad -->
+                        <span>3</span>
+                        <!-- Nombre -->
+                        Nombre del primer item de la orden
+                    </p>
+                    <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                        Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque, cum
+                        deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque iste
+                        ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                    </p>
+                </div>
+                <div class="flex justify-center items-center shrink-0 w-[35%]">
+
+                    <!-- Boton -->
+                    <button class="w-max uppercase text-black rounded-2xl px-2 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                                            border-[#F4DA5D]">
+                        listo
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="w-[360px] bg-[#F4DA5D7D] rounded-2xl px-4 h-full overflow-y-auto border">
+        <!-- Cabecera -->
+        <div class="text-[1.2rem] font-medium py-3 px-2 uppercase text-center">
+            Pendiente a retiro
+        </div>
+
+        <!-- Contenido -->
+
+        <!-- Card 1 -->
+        <div class="border border-[#229685] rounded-2xl w-full pt-2 pb-3 px-4 mb-8">
+            <div class="flex flex-row w-full pb-2 mb-2">
+                <div class="shrink w-[65%] ">
+                    <!-- Item 1-->
+                    <div class="mb-2">
+
+                        <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                            <!-- Cantidad -->
+                            <span>3</span>
+                            <!-- Nombre -->
+                            Nombre del primer item de la orden
+                        </p>
+                        <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                            Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque,
+                            cum
+                            deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque
+                            iste
+                            ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                        </p>
+                    </div>
+                    <!-- Item 2-->
+                    <div class="mb-2">
+
+                        <p class="truncate w-full font-bold text-[.9rem] leading-normal uppercase">
+                            <!-- Cantidad -->
+                            <span>3</span>
+                            <!-- Nombre -->
+                            Nombre del primer item de la orden
+                        </p>
+                        <p class="w-full p-1 text-[.8rem] max-h-[2em] leading-none text-ellipsis overflow-hidden">
+                            Descripcion : Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex expedita eaque,
+                            cum
+                            deleniti excepturi ducimus? Libero aspernatur nobis repellendus ipsam, voluptatem, eaque
+                            iste
+                            ipsum accusantium, dolores fuga adipisci voluptatibus assumenda!
+                        </p>
+                    </div>
+
+
+                </div>
+                <div class="flex flex-col items-center shrink-0 w-[35%] gap-4">
+
+                    <!-- Boton -->
+                    <button class="block w-max uppercase h-max text-black rounded-2xl px-4 border-4 bg-[#F4DA5D] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                            border-[#F4DA5D]">
+                        QR
+                    </button>
+                    <button class="block w-max uppercase h-max text-black rounded-2xl px-2 py-2 border-4 bg-[#7DD3C7] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                                                border-[#7DD3C7]">
+                        Retirar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </div>

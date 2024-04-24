@@ -16,7 +16,6 @@ export class CardShopComponent {
   errorHandler(event: Event) {
     let img = event.target
     if (img instanceof HTMLImageElement) {
-      console.log(img)
       img.src = 'assets/Logo-Circulo.png'
     }
 
