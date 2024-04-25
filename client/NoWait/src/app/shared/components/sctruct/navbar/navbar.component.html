@@ -23,7 +23,10 @@
       </div> -->
       <button (click)="showSearchModal.set(true)" class=" inline-flex items-center w-max h-10 justify-center text-lg text-white rounded-2xl px-4 border-4 bg-[--info] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
         border-[--info]" aria-controls="navbar-search" aria-expanded="false">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+        </svg>
         <samp class="pl-4">Buscar</samp>
       </button>
     </div>
@@ -33,7 +36,7 @@
       <button type="button" (click)="showShoppingCart.set(true)"
         class="relative inline-flex items-center p-2 w-10 h-10 md:h-8 justify-center text-sm text-gray-500 rounded-lg "
         aria-controls="navbar-search" aria-expanded="false">
-        <svg class="min-w-10 min-h-10 md:min-w-8 text-[#ff0000be] md:text-gray-800 " aria-hidden="true"
+        <svg class="min-w-10 min-h-10 md:min-w-8 text-[#ff0000] md:text-gray-800 " aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
