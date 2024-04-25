@@ -11,12 +11,25 @@ export class ShoppingCartManagerService {
 
   readonly itemsCount: Signal<number>;
 
+  readonly priceTotal: WritableSignal<number> = signal(0);
+
   constructor() {
     this.cartContent = signal(this.getStorageCart());
     this.itemsCount = computed(() => {
       console.log(this.cartContent());
       return this.cartContent().length
     })
+    this.updatePriceTotal()
+
+  }
+
+  updatePriceTotal() {
+    let countTotal = 0
+    for (let item of this.cartContent()) {
+      countTotal += item.amount * item.price;
+
+    }
+    this.priceTotal.set(Number((countTotal).toFixed(2)))
   }
 
   // manejo de storage
@@ -36,6 +49,7 @@ export class ShoppingCartManagerService {
     let valueString = JSON.stringify(value);
 
     localStorage.setItem(this.storageName, valueString);
+    this.updatePriceTotal()
   }
 
 
@@ -121,7 +135,9 @@ export class ShoppingCartManagerService {
 
 export interface ItemCart {
   id: number;
-  shopId: number
+  shopId: number;
+  shopName: string;
+  shopLocal: string;
   name: string;
   price: number;
   amount: number;

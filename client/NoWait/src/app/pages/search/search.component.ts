@@ -18,6 +18,8 @@ import { FoodModalComponent } from '../../shared/components/modals/food-modal/fo
 export class SearchComponent implements OnInit {
   foodSelected: Product | null = null
   imgShopSelected: string | null = null;
+  nameShopSelected: string | null = null;
+  localShopSelected: string | null = null;
 
   showFoodModal = signal<boolean>(false);
   finishSearch = signal<boolean>(false)
@@ -67,9 +69,11 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  openInFoodModal(food: Product, imgShop: string) {
+  openInFoodModal(food: Product, imgShop: string, nameShop: string, localShop: string) {
     this.foodSelected = food;
-    this.imgShopSelected = imgShop
+    this.imgShopSelected = imgShop;
+    this.nameShopSelected = nameShop;
+    this.localShopSelected = localShop;
     this.showFoodModal.set(true);
 
   }

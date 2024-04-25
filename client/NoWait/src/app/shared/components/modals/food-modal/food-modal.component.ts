@@ -17,7 +17,9 @@ export class FoodModalComponent implements OnInit {
 
   element: Product | null = null;
 
-  @Input() imgShop: string | null = '';
+  @Input({ required: true }) imgShop: string | null = '';
+  @Input({ required: true }) shopName: string | null = '';
+  @Input({ required: true }) shopLocal: string | null = '';
 
   @Input() set itemMenu(value: Product | null) {
     if (value) {
@@ -59,16 +61,10 @@ export class FoodModalComponent implements OnInit {
   }
 
   add() {
-    // this.amount.setValue(this.amount.value + 1)
     this.count.update(v => ++v)
   }
 
   subtract() {
-    // if (this.amount.value == 0) {
-    //   return
-    // }
-    // this.amount.setValue(this.amount.value - 1)
-
 
     this.count.update(v => {
       if (v == 0) {
@@ -85,6 +81,8 @@ export class FoodModalComponent implements OnInit {
       this._cartManageService.updateItem({
         id,
         shopId,
+        shopLocal: this.shopLocal ?? '',
+        shopName: this.shopName ?? '',
         amount: this.count(),
         imgUrl: imageUrl,
         name,

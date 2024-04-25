@@ -30,7 +30,7 @@
 
     <!-- carrito -->
     <div class="fixed top-[14px] right-9 md:top-0 md:left-0 md:relative flex md:order-2 md:ml-10">
-      <button type="button"
+      <button type="button" (click)="showShoppingCart.set(true)"
         class="relative inline-flex items-center p-2 w-10 h-10 md:h-8 justify-center text-sm text-gray-500 rounded-lg "
         aria-controls="navbar-search" aria-expanded="false">
         <svg class="min-w-10 min-h-10 md:min-w-8 text-[#ff0000be] md:text-gray-800 " aria-hidden="true"
@@ -67,3 +67,4 @@
 </nav>
 <app-navbar-footer [showSearchModal]="showSearchModal"></app-navbar-footer>
 <app-search-modal [showModal]="showSearchModal"></app-search-modal>
+<app-shoppping-cart [showModal]="showShoppingCart"></app-shoppping-cart>

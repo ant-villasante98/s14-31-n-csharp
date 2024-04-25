@@ -1,12 +1,56 @@
-<app-main-modal [showModal]="showModal">
-    <div class="relative w-[calc(100%_-_4rem)] max-w-[800px] max-h-full m-auto mt-[--space-content]">
+<app-main-modal [showModal]="showModal" [staticModal]="true">
+
+    <!-- @if (true) { -->
+    <div
+        class="text-yanone relative w-[calc(100%_-_4rem)] max-w-[600px] max-h-[calc(100%_-_90px)] m-auto mt-[--m-t-content] md:mr-[120px]">
         <div
-            class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-4 [&_div_div]:border [&_div_div]:border-gray-300 [&_div_div]:p-2 [&_div_div]:rounded-lg">
-            <div class="flex flex-col gap-2 ">
-                <div>item 1</div>
-                <div>item 2</div>
-                <div>item 3</div>
+            class="relative bg-[#E2C30A] overflow-auto h-full min-h-[500px] rounded-b-xl rounded-tl-xl drop-shadow shadow p-4">
+            <button (click)="showModal.set(false)" type="button"
+                class="absolute top-4 right-4 text-white border-[3px] border-white m-0 p-[5px] rounded-md">
+                <svg class="h-3 fill-white" version="1.1" viewBox="0 0 47 52" xml:space="preserve"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g>
+                        <path
+                            d="M45.243,41.757L31.455,26l13.788-15.758c2.343-2.344,2.343-6.143,0-8.486c-2.345-2.343-6.144-2.342-8.486,0.001   L23.5,16.909L10.243,1.757C7.9-0.585,4.102-0.586,1.757,1.756c-2.343,2.344-2.343,6.143,0,8.486L15.545,26L1.757,41.757   c-2.343,2.343-2.343,6.142-0.001,8.485c2.344,2.344,6.143,2.344,8.487,0L23.5,35.09l13.257,15.152c2.345,2.344,6.144,2.344,8.487,0   C47.586,47.899,47.586,44.1,45.243,41.757z" />
+                    </g>
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                    <g />
+                </svg>
+            </button>
+            <h2 class="text-center text-white font-bold mb-4 text-2xl">TU CARRITO</h2>
+            <div class="flex flex-col gap-2 max-h-[400px] overflow-y-auto border-0">
+                @for (item of cartContent(); track $index) {
+                <app-card-shopping [item-cart]="item" [index]="$index"></app-card-shopping>
+                }
+
             </div>
+            <div class="flex justify-between items-center flex-col uppercase mt-auto">
+                <div class="pt-4">
+                    <p class="">SUBTOTAL: $ {{total()}}</p>
+                    <p class="font-bold">TOTAL: $ {{total()}}</p>
+                </div>
+            </div>
+            <button (click)="createOrder()"
+                class="block uppercase mx-auto bg-[#e0c630] w-max font-bold py-2 px-4 rounded-lg mt-2 shadow-xl">
+                INICIAR COMPRA
+            </button>
         </div>
     </div>
+    <!-- } -->
+    <!-- @else {
+    <app-pay-cart [showModal]="showModal" (showChanged)="onShowChanged($event)"></app-pay-cart>
+    } -->
 </app-main-modal>

@@ -18,7 +18,7 @@
                 <!-- Comidas que coinciden con la busqueda -->
                 @for (food of shop.menuFilteredResults; track $index) {
                 <div class="flex flex-none items-center bg-white h-full border-x-2 px-2 py-2 cursor-pointer"
-                    (click)="openInFoodModal(food, shop.imageUrl)">
+                    (click)="openInFoodModal(food, shop.imageUrl, shop.name, shop.address)">
                     <div>
                         <img class="block bg-black size-[96px] rounded-xl" [src]="food.imageUrl" alt=""
                             (error)="errorHandlerFood($event)">
@@ -52,4 +52,5 @@
         }
     </div>
 </div>
-<app-food-modal [show-food]="showFoodModal" [itemMenu]="foodSelected" [imgShop]="imgShopSelected"></app-food-modal>
+<app-food-modal [show-food]="showFoodModal" [itemMenu]="foodSelected" [imgShop]="imgShopSelected"
+    [shopLocal]="localShopSelected" [shopName]="nameShopSelected"></app-food-modal>
