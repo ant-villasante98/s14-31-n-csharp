@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   private router = inject(Router)
   private autManager = inject(AuthManagerService)
 
+  private urlNext: string = '/'
   submitState = signal<boolean>(true)
 
   showSpinnerLogin = signal<boolean>(false)
@@ -39,6 +40,10 @@ export class LoginComponent implements OnInit {
     })
 
     this.autManager.getCredentials();
+    this.urlNext = window.history.state.url ?? "/"
+    if (this.urlNext === '/user') {
+      this.urlNext = '/'
+    }
   }
 
   get email() {
@@ -67,7 +72,7 @@ export class LoginComponent implements OnInit {
     this._authService.login(userlogin)
       .subscribe({
         next: (data) => {
-          this.router.navigateByUrl("/");
+          this.router.navigateByUrl(this.urlNext);
         },
         error: (errors: any) => {
           this.showUnauthorization.set(true)

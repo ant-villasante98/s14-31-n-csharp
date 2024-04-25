@@ -33,6 +33,11 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
+        path: 'create-order',
+        loadComponent: () => import('./pages/create-order/create-order.component').then(c => c.CreateOrderComponent),
+        canActivate: [authGuard]
+    },
+    {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'

@@ -32,6 +32,7 @@ export class SearchComponent implements OnInit {
   listResult = signal<ResposeSearchFood[]>([]);
 
   ngOnInit(): void {
+    console.log(window.history.state.url)
 
     this.observerUrl()
   }

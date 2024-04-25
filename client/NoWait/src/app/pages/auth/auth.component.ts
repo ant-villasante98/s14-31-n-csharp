@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -8,6 +8,15 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit, OnDestroy {
+  private router = inject(Router)
+  private route = inject(ActivatedRoute)
 
+  ngOnInit(): void {
+    console.log(this.router.getCurrentNavigation()?.extras.state)
+    console.log(window.history.state.url)
+  }
+  ngOnDestroy(): void {
+    window.history.state.url = '/'
+  }
 }

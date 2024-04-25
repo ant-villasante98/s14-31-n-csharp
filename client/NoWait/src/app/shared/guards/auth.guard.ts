@@ -1,4 +1,4 @@
-import { CanActivateFn, Router } from '@angular/router';
+import { ActivatedRoute, CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { AuthManagerService } from '../services/auth-manager.service';
 
@@ -9,6 +9,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   if (creadenciales) {
     return true;
   }
-  router.navigate(['/auth'])
+  let currentUrl = `/${route.routeConfig?.path ?? ""}`
+  router.navigateByUrl('/auth', { state: { url: currentUrl } })
   return false
 };
