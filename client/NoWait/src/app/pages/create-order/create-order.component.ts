@@ -45,9 +45,6 @@ export class CreateOrderComponent implements OnInit {
             error: () => {
               this.messageResul.set('OOOPP!!. No se pudo crear la Orden')
               this.showLoadingModal.set(false)
-
-              // TODO: Borrar
-              this.payOrder(1)
             }
           }
         )
