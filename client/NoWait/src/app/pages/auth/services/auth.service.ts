@@ -34,10 +34,18 @@ export class AuthService {
     return this.httpClient.post<any>(`${this.API_URL}/register`, userlogin);
   }
 
-  refresh(accessToken: string, refreshToken: string): Observable<UserAuth> {
-    return of().pipe(map((res) => {
-      this._notificationService.setConfiguration()
-      return res
-    }));
+  refresh(refreshToken: string): Observable<UserAuth> {
+    // return of().pipe(map((res) => {
+    //   this._notificationService.setConfiguration()
+    //   return res
+    // }));
+    return this.httpClient.post<UserAuth>(`${this.API_URL}/refresh`, { refreshToken })
+      .pipe(
+        map(res => {
+          this._authManager.setCredentials(res)
+          this._notificationService.setConfiguration()
+          return res
+        })
+      )
   }
 }

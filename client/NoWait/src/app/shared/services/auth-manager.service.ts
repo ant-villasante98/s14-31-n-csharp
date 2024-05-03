@@ -12,7 +12,7 @@ export class AuthManagerService {
   // readonly sessionState = signal<boolean>(false)
 
   // controlar estado de peticion de refresh token
-  tokenRefreshin: boolean = false;
+  tokenRefreshing: boolean = false;
 
   //obtencion de credenciales
   userCredentials: string | null = "";
