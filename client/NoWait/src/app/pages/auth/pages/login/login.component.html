@@ -8,7 +8,7 @@
   <div class="min-h-container flex-1 md:bg-transparent flex items-center justify-center w-full">
     <form [formGroup]="formLogin" (submit)="submitLogin()"
       class="py-11  bg-[#E2C30A] w-[300px] md:w-[70%] md:h-[auto] rounded-2xl shadow-2xl flex flex-col items-center justify-center gap-4 md:gap-8 md:z-10">
-      <h1 class="text- md:text-3xl font-bold text-[#56523D]">LOGIN</h1>
+      <h1 class="text- md:text-3xl font-bold text-[#56523D]">Iniciar Sesión</h1>
       <div class="flex flex-col items-center gap-4">
         <!-- Campo de email -->
         <div class="relative">
@@ -68,6 +68,7 @@
         class="mt-6 bg-[#F4DA5D] font-bold px-4 py-2 rounded-full shadow-lg shadow-bottom drop-shadow-md text-black hover:bg-white ">
         Iniciar sesión
       </button>
+      <a routerLink="/auth/sign-up" class="text-[--warning] underline hover:no-underline">registrarse</a>
     </form>
   </div>
   <div class="md:flex-1 flex items-center justify-center relative md:h-full">

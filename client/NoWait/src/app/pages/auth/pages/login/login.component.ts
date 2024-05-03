@@ -1,7 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserLogin } from '../../../../models/user-login';
 import { AuthManagerService } from '../../../../shared/services/auth-manager.service';
 import { JsonPipe } from '@angular/common';
@@ -10,7 +10,7 @@ import { MsnErrorComponent } from '../../../../shared/components/msn-error/msn-e
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe, MsnErrorComponent],
+  imports: [ReactiveFormsModule, JsonPipe, MsnErrorComponent, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
