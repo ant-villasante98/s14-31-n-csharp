@@ -7,11 +7,12 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { of, switchMap } from 'rxjs';
 import { Product } from '../../models/malls';
 import { FoodModalComponent } from '../../shared/components/modals/food-modal/food-modal.component';
+import { WraperFoodResultsComponent } from './components/wraper-food-results/wraper-food-results.component';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CardShopComponent, UpperCasePipe, FoodModalComponent],
+  imports: [CardShopComponent, UpperCasePipe, FoodModalComponent, WraperFoodResultsComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
@@ -70,20 +71,13 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  openInFoodModal(food: Product, imgShop: string, nameShop: string, localShop: string) {
-    this.foodSelected = food;
-    this.imgShopSelected = imgShop;
-    this.nameShopSelected = nameShop;
-    this.localShopSelected = localShop;
+  openInFoodModal(value: { food: Product, imgShop: string, nameShop: string, localShop: string }) {
+    this.foodSelected = value.food;
+    this.imgShopSelected = value.imgShop;
+    this.nameShopSelected = value.nameShop;
+    this.localShopSelected = value.localShop;
     this.showFoodModal.set(true);
 
   }
 
-
-  errorHandlerFood(event: Event) {
-    let img = event.target
-    if (img instanceof HTMLImageElement) {
-      img.src = 'assets/error-img.jpg'
-    }
-  }
 }
