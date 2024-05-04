@@ -36,9 +36,8 @@ export class CreateOrderComponent implements OnInit {
         .subscribe(
           {
             next: (res) => {
-              console.log(res)
 
-              // TODO: cambiar al id verdadero
+              localStorage.setItem('orderId', res)
               this.payOrder(res)
 
             },
@@ -70,6 +69,7 @@ export class CreateOrderComponent implements OnInit {
           this.showLoadingModal.set(false);
         },
         error: () => {
+          localStorage.removeItem('orderId')
           this.messageResul.set('OOOPP!!. No se pudo pagar la Orden')
           this.showLoadingModal.set(false)
         },

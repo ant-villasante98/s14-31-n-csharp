@@ -54,6 +54,7 @@ export class AuthManagerService {
   }
 
   rmCreadentials() {
+    localStorage.removeItem('orderId')
     localStorage.removeItem(this.nameStorage);
   }
 

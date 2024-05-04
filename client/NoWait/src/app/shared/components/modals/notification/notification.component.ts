@@ -38,7 +38,7 @@ export class NotificationComponent implements OnInit {
     // 3
     {
       title: "Orden Lista",
-      description: "Tu orden esta lista para que la retires"
+      description: "Ya puedes retirar tu pedido. "
     },
     // 4
     {

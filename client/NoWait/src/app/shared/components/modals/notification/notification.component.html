@@ -1,44 +1,46 @@
-<app-main-modal [showModal]="showNotification" [staticModal]="true">
+<!-- <app-main-modal [showModal]="showNotification" [staticModal]="true"> -->
+@if (showNotification()) {
+<!-- <div
+    class="text-yanone flex flex-col items-center m-auto mb-[--space-h-footer] bg-[#45BAAC] rounded-tl-3xl rounded-tr-3xl w-[320px] h-[226px] pt-5 px-5 md:mb-0"> -->
+<div
+    class="fixed z-40 bottom-0 right-[calc(50%_-_160px)]  text-yanone flex flex-col items-center m-auto mb-[--space-h-footer] bg-[#45BAAC] rounded-tl-3xl rounded-tr-3xl w-[320px] min-h-[226px] pt-5 pb-8 px-5 md:mb-0">
 
-    <div
-        class="text-yanone flex flex-col items-center m-auto mb-[--space-h-footer] bg-[#45BAAC] rounded-tl-3xl rounded-tr-3xl w-[320px] h-[226px] pt-5 px-5 md:mb-0">
-
-        <div class="w-full flex justify-end">
-            <button (click)="showNotification.set(false)" type="button"
-                class="mafont-normal text-white border-[3px] border-white m-0 p-[5px] rounded-md">
-                <svg class="h-3 fill-white" version="1.1" viewBox="0 0 47 52" xml:space="preserve"
-                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g>
-                        <path
-                            d="M45.243,41.757L31.455,26l13.788-15.758c2.343-2.344,2.343-6.143,0-8.486c-2.345-2.343-6.144-2.342-8.486,0.001   L23.5,16.909L10.243,1.757C7.9-0.585,4.102-0.586,1.757,1.756c-2.343,2.344-2.343,6.143,0,8.486L15.545,26L1.757,41.757   c-2.343,2.343-2.343,6.142-0.001,8.485c2.344,2.344,6.143,2.344,8.487,0L23.5,35.09l13.257,15.152c2.345,2.344,6.144,2.344,8.487,0   C47.586,47.899,47.586,44.1,45.243,41.757z" />
-                    </g>
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                </svg>
-            </button>
-        </div>
-
-        <h1 class="text-center text-white text-[24px] font-bold uppercase">
-            {{messageNotification.title}}
-        </h1>
-
-        <h1 class="font-abc text-[16px]  text-black text-center mt-3 font-semibold px-8 uppercase">
-            {{messageNotification.description}}
-        </h1>
-
+    <div class="w-full flex justify-end">
+        <button (click)="showNotification.set(false)" type="button"
+            class="mafont-normal text-white border-[3px] border-white m-0 p-[5px] rounded-md">
+            <svg class="h-3 fill-white" version="1.1" viewBox="0 0 47 52" xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                    <path
+                        d="M45.243,41.757L31.455,26l13.788-15.758c2.343-2.344,2.343-6.143,0-8.486c-2.345-2.343-6.144-2.342-8.486,0.001   L23.5,16.909L10.243,1.757C7.9-0.585,4.102-0.586,1.757,1.756c-2.343,2.344-2.343,6.143,0,8.486L15.545,26L1.757,41.757   c-2.343,2.343-2.343,6.142-0.001,8.485c2.344,2.344,6.143,2.344,8.487,0L23.5,35.09l13.257,15.152c2.345,2.344,6.144,2.344,8.487,0   C47.586,47.899,47.586,44.1,45.243,41.757z" />
+                </g>
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+                <g />
+            </svg>
+        </button>
     </div>
 
-</app-main-modal>
+    <h1 class="text-center text-white text-[24px] font-bold uppercase">
+        {{messageNotification.title}}
+    </h1>
+
+    <h1 class="font-abc text-[16px]  text-black text-center mt-3 font-semibold px-8 uppercase">
+        {{messageNotification.description}}
+    </h1>
+
+</div>
+}
+<!-- </app-main-modal> -->
