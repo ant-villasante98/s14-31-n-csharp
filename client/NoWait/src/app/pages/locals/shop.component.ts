@@ -3,6 +3,7 @@ import { MallsService } from '../../shared/services/malls.service';
 // import { CardShopComponent } from './card-shop/card-shop.component';
 import { ResposeSearchFood } from '../../models/search-result';
 import { CardShopComponent } from '../search/components/card-shop/card-shop.component';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-shop',
@@ -24,8 +25,10 @@ export class ShopComponent implements OnInit {
 
   getShops() {
     this._mallsService.getShopsByMallId(1).subscribe({
-      next: result => {
-        this.listShops = result;
+      next: (result: any[]) => {
+        this.listShops = result.map(item => {
+          return { ...item, shopId: item.id }
+        })
         console.log("Shops: ", this.listShops)
       },
       error: () => {

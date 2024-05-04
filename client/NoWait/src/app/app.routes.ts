@@ -23,6 +23,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/locals/shop.component').then(c => c.ShopComponent)
     },
     {
+        path: 'shop/:id',
+        loadComponent: () => import('./pages/shop-detail/shop-detail.component').then(c => c.ShopDetailComponent)
+    },
+    {
         // Componente de prueba
         path: 'test-component',
         loadComponent: () => import('./pages/test/test.component').then(c => c.TestComponent),

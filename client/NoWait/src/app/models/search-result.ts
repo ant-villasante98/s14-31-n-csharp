@@ -11,6 +11,3 @@ export interface ResposeSearchFood {
     name:                string;
     shopId:              number;
 }
-
-
-   

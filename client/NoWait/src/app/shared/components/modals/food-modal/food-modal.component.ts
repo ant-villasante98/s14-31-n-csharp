@@ -22,10 +22,15 @@ export class FoodModalComponent implements OnInit {
   @Input({ required: true }) shopLocal: string | null = '';
 
   @Input() set itemMenu(value: Product | null) {
+    this.count.set(0)
     if (value) {
       console.log('nuevo elemento', value.name)
       this.element = value
       this.undPrice = this.element.price;
+      let item = this._cartManageService.GetItem(value.id)
+      if (item) {
+        this.count.set(item.amount)
+      }
     }
   }
 
@@ -57,7 +62,6 @@ export class FoodModalComponent implements OnInit {
 
   closeModal() {
     this.showModal.set(false)
-    this.count.set(0)
   }
 
   add() {

@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { ResposeSearchFood } from '../../../../models/search-result';
 import { UpperCasePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card-shop',
   standalone: true,
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe, RouterLink],
   templateUrl: './card-shop.component.html',
   styleUrl: './card-shop.component.css'
 })
