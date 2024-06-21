@@ -1,0 +1,27 @@
+<div class="pt-[--m-t-content] w-full text-yanone">
+    <div class="flex flex-col w-full mt-8 justify-center items-center gap-2">
+        <div>
+            <p class="text-center text-[2rem] font-medium">User</p>
+        </div>
+        <div>
+            <svg class="h-[120px]" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z" />
+            </svg>
+        </div>
+        <div class="pt-4">
+            <div class="flex flex-col w-[300px] justify-center gap-4 items-center">
+                <!-- <button
+                    class="text-[1.4rem] border-y-2 border-transparent bg-gradient-to-r from-transparent from-0% via-[#DBD9D9] via-50% to-transparent drop-shadow-md"> -->
+                <button class="text-[1.4rem] w-full h-10 justify-center text-lg text-white rounded-2xl px-4 border-4 bg-[--info] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                            border-[--info]" aria-expanded="false">
+                    Historial de Ordenes
+                </button>
+                <button (click)="logOut()" class="text-[1.4rem] mt-4 w-full h-10 justify-center text-lg text-white rounded-2xl px-4 border-4 bg-[--primary] shadow shadow-gray-500 drop-shadow hover:text-black hover:bg-white
+                                            border-[--primary]" aria-expanded="false">
+                    Cerrar Sesion
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

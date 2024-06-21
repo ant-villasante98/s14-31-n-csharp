@@ -1,4 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+/* Agrega la fuente Yanone Kaffeesatz */
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --space-h-footer: 76px;
+
+    --min-main-container: calc(100svh - var(--space-h-footer));
+
+    --space-t-navbar: 8px;
+    --h-navbar: 56px;
+
+    --m-t-content: calc(var(--space-t-navbar) + var(--h-navbar));
+    --primary: #E2C30A;
+    --warning: #FF1D25;
+    --info: #45BAAC;
+    --primary-dark: #C6A609;
+}
+
+
+.text-yanone {
+    font-family: "Yanone Kaffeesatz", sans-serif;
+
+}
+
+body {
+    position: relative;
+}
+
+.min-h-container {
+    height: var(--min-main-container);
+}
+
+
+.init-splash {
+    position: fixed;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 1000;
+    opacity: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .finish-splash {
+    transition: all 3s;
+    opacity: 0;
+} */
+
+@media (min-width: 768px) {
+
+    :root {
+        --min-main-container: calc(100vh - var(--space-h-footer));
+    }
+}

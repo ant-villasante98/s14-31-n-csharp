@@ -1,0 +1,19 @@
+<div class="w-full text-yanone pb-8">
+    <!-- Shop Banner -->
+    <!-- <div class=" flex items-end relative w-full h-[250px] bg-white">
+        <img class="absolute w-full h-full object-contain" [src]="shop()?.bannerUrl" alt="banner image">
+        <h3 class="relative w-full text-[1.8rem] font-extrabold text-[--primary] pl-4 pb-2">
+            {{shop()?.name}}
+            <span class="inline-block w-max text-[1rem] font-normal ">{{shop()?.address}}</span>
+        </h3>
+        <img class="absolute size-[100px] -bottom-[30px] right-5 object-fill rounded-full shadow drop-shadow"
+            [src]="shop()?.imageUrl" alt="logo local">
+    </div> -->
+    <app-shop-banner [setshopAddress]="shop()?.address" [setshopBannerImg]="shop()?.bannerUrl"
+        [setshopName]="shop()?.name" [setshopLogoImg]="shop()?.imageUrl"></app-shop-banner>
+
+    <app-recommendations></app-recommendations>
+    <app-shop-menu [setFoodList]="shop()?.menu" [setShopAddress]="shop()?.address" [setShopName]="shop()?.name"
+        [setShopImg]="shop()?.imageUrl"></app-shop-menu>
+
+</div>

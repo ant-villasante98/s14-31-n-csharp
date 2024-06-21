@@ -1,0 +1,33 @@
+<app-main-modal [showModal]="showModal">
+    <div class="relative w-full max-w-full max-h-full m-0 bg-white">
+        <div class="relative w-full bg-[--warning] pt-4 pb-2 px-4">
+            <form [formGroup]="formSearch" class="mx-auto flex flex-row gap-5 max-w-[700px]" (submit)="searchFood()">
+                <button type="button" class="w-10 h-10 pb-4 justify-center  text-lg rounded-2xl text-black"
+                    (click)="showModal.set(false)" aria-controls="navbar-search" aria-expanded="false">
+                    <img class="h-full" src="assets/icon-back.svg" alt="search">
+                </button>
+                <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
+                <div class="relative flex-1">
+
+                    <input #inputSearch type="text" formControlName="query"
+                        class="block w-full p-2 ps-2 text-sm text-gray-900 border border-gray-300 rounded-md bg-gray-50 h-full"
+                        placeholder="Aplaca tu antojo" />
+                    <button type="submit"
+                        class="absolute top-0 right-0 items-center h-10 w-10 justify-center text-lg rounded-2xl  pr-4 text-black md:py-2 "
+                        aria-controls="navbar-search" aria-expanded="false">
+                        <img src="assets/icon-search.svg" alt="search">
+                    </button>
+                </div>
+
+            </form>
+            <!-- {{focusInput()}} -->
+            <!--  mostar solo cuando el backend devuelva un array no vacio -->
+            <!-- @if (query.value.trim()) {
+            <div class="absolute h-72 top-[calc(100%_+_8px)] rounded-lg border border-gray-300 bg-gray-50 w-full p-4">
+                resultados de busqueda
+            </div>
+            } -->
+        </div>
+    </div>
+</app-main-modal>
+{{focusInput()}}

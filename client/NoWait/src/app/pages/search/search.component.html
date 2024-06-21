@@ -1,0 +1,30 @@
+<div class="pt-[--m-t-content] text-yanone w-full mb-9 bg-transparent">
+
+    <div class="flex font-medium text-[18px] w-[390px] pt-[32px] md:flex-row">
+        <h1 class="ml-8 mr-4">Resultados de búsqueda: </h1>
+        <span>{{qSearch()| uppercase}}</span>
+    </div>
+
+    <div class="flex flex-col w-full justify-center items-center gap-6 px-6 mt-4 md:flex-row md:flex-wrap">
+        @if (finishSearch()) {
+        <!-- card de los resultados -->
+        @for (shop of listResult(); track $index) {
+        <app-wraper-food-results [shop]="shop" (emitSelectedFood)="$event">
+            <app-card-shop [item-resul]="shop"></app-card-shop>
+        </app-wraper-food-results>
+        <!-- Local -->
+
+
+        }
+        @empty {
+        <!-- TODO: falta maquetar -->
+        <p>no se encontraron resultados</p>
+        }
+        }@else {
+        <!-- TODO: Falta maquetar -->
+        <p>buscando ...</p>
+        }
+    </div>
+</div>
+<app-food-modal [show-food]="showFoodModal" [itemMenu]="foodSelected" [imgShop]="imgShopSelected"
+    [shopLocal]="localShopSelected" [shopName]="nameShopSelected"></app-food-modal>

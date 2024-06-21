@@ -1,0 +1,9 @@
+<div class=" flex items-end relative w-full h-[250px] bg-white">
+    <img class="absolute w-full h-full object-contain" [src]="shopBannerImg()" alt="banner image">
+    <h3 class="relative w-full text-[1.8rem] font-extrabold text-[--primary] pl-4 pb-2">
+        {{shopName()}}
+        <span class="inline-block w-max text-[1rem] font-normal ">{{shopAddress()}}</span>
+    </h3>
+    <img class="absolute size-[100px] -bottom-[30px] right-10 object-fill rounded-full shadow drop-shadow"
+        [src]="shopLogoImg()" alt="logo local">
+</div>
